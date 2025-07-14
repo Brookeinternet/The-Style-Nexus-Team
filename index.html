@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Style Nexus - Aura's Profile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background fallback */
+            color: #333; /* Darker text for readability */
+            /* Background image for the entire page */
+            background-image: url('https://i.imgur.com/gRDm1Bc.jpeg'); /* Using Aura's image from the Chanel post */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center center; /* Center the image */
+            background-attachment: fixed; /* Keep background fixed while scrolling content */
+            background-repeat: no-repeat; /* Do not repeat the image */
+        }
+        /* Add a semi-transparent overlay to the main content container for better readability */
+        .content-container {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+        }
+        /* Custom styles for profile image */
+        .profile-pic-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #e0e0e0; /* Light border for profile pic */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-5xl w-full content-container">
+
+            <!-- Profile Header Section (Instagram-like) -->
+            <header class="p-6 sm:p-8 border-b border-gray-200 text-center flex flex-col items-center">
+                <div class="profile-pic-container mb-4">
+                    <img
+                        src="https://i.imgur.com/gRDm1Bc.jpeg"
+                        alt="Aura's Profile Picture"
+                        class="profile-pic"
+                        onerror="this.onerror=null;this.src='https://placehold.co/120x120/cccccc/333333?text=Aura';"
+                    >
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-1">
+                    Aura <span class="text-blue-500 text-xl">&#10003;</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 mb-4">
+                    @thestylenexus
+                </p>
+                <p class="text-md text-gray-700 max-w-2xl mx-auto">
+                    Digital Fashion Muse | Exploring Haute Couture & AI Influence. Your daily dose of style inspiration from the future.
+                </p>
+                <div class="flex space-x-6 mt-4">
+                    <div class="text-center">
+                        <p class="font-bold text-lg">3</p>
+                        <p class="text-sm text-gray-500">Posts</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-lg">1.2M</p>
+                        <p class="text-sm text-gray-500">Followers</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-bold text-lg">12</p>
+                        <p class="text-sm text-gray-500">Following</p>
+                    </div>
+                </div>
+                <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-5 rounded-md transition-colors duration-300 shadow-md">
+                    Follow
+                </button>
+            </header>
+
+            <!-- Navigation Tabs (Instagram-like) -->
+            <nav class="bg-gray-100 p-4 sm:p-6 border-b border-gray-200">
+                <ul class="flex justify-around items-center">
+                    <li>
+                        <a href="#latest-posts" class="text-blue-600 border-b-2 border-blue-600 pb-2 font-medium text-md sm:text-lg">
+                            Posts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 pb-2 font-medium text-md sm:text-lg">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-gray-700 hover:text-blue-600 pb-2 font-medium text-md sm:text-lg">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content Area (Post Grid) -->
+            <main class="p-4 sm:p-6 lg:p-8">
+                <section id="latest-posts" class="mb-12">
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 text-center">
+                        Latest Posts
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Post 1: Chanel Cute Girl -->
+                        <a href="chanel-cute-girl-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <img
+                                src="https://i.imgur.com/gRDm1Bc.jpeg"
+                                alt="Aura in a cute Chanel outfit"
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Chanel';"
+                            >
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white text-center font-semibold text-lg p-4">Chic Charm: Adorable Chanel</p>
+                            </div>
+                        </a>
+
+                        <!-- Post 2: Tomboyish Dior -->
+                        <a href="dior-tomboy-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <img
+                                src="https://i.imgur.com/d9ZF1lO.jpeg"
+                                alt="Aura in a tomboyish Dior outfit"
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Dior';"
+                            >
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white text-center font-semibold text-lg p-4">Effortless Edge: Tomboy Dior</p>
+                            </div>
+                        </a>
+
+                        <!-- Post 3: Louis Vuitton Onthego MM -->
+                        <a href="fashion-blog-post" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <img
+                                src="https://i.imgur.com/tiRhmko.jpeg"
+                                alt="Aura with Louis Vuitton Onthego MM bag"
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Louis+Vuitton';"
+                            >
+                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <p class="text-white text-center font-semibold text-lg p-4">Modern Luxury Muse: LV Moment</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- About Aura Section (hidden by default, can be shown with JS for tab functionality) -->
+                <section id="about" class="mb-12 text-center bg-blue-50 p-6 rounded-lg shadow-inner hidden">
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+                        About Aura: The AI Influencer
+                    </h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Aura is not just an AI; she's a visionary in the world of digital fashion. Designed to embody the pinnacle of style and grace, Aura explores the intersection of technology and haute couture, bringing you unique perspectives on luxury trends and inspiring a new era of creative expression.
+                    </p>
+                </section>
+
+                <!-- Contact Section (hidden by default, can be shown with JS for tab functionality) -->
+                <section id="contact" class="text-center hidden">
+                    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+                        Connect With Us
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Have questions, collaborations, or just want to say hello? Reach out to The Style Nexus team!
+                    </p>
+                    <a href="mailto:info@stylenexus.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg">
+                        Email Us
+                    </a>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Simple JavaScript for tab functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('nav ul li a');
+            const sections = document.querySelectorAll('main section');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default anchor jump
+
+                    // Remove active styles from all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
+                        t.classList.add('text-gray-700', 'hover:text-blue-600');
+                    });
+
+                    // Add active styles to clicked tab
+                    e.target.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
+                    e.target.classList.remove('text-gray-700', 'hover:text-blue-600');
+
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.classList.add('hidden');
+                    });
+
+                    // Show the target section
+                    const targetId = e.target.getAttribute('href');
+                    document.querySelector(targetId).classList.remove('hidden');
+
+                    // Scroll to the top of the main content area for a smoother experience
+                    document.querySelector('.content-container').scrollTop = 0;
+                });
+            });
+
+            // Set initial active tab and display corresponding section
+            // This ensures "Latest Posts" is visible on load
+            document.querySelector('nav ul li a[href="#latest-posts"]').click();
+        });
+    </script>
+</body>
+</html>
