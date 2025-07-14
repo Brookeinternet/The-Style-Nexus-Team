@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effortless Edge: Aura's Tomboy Dior Statement (Premium)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333; /* Darker text for readability */
+        }
+        .premium-content {
+            display: none; /* Hidden by default until authenticated */
+        }
+        .message-box {
+            background-color: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffecb5;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .button-secondary {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #4b5563; /* gray-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .button-secondary:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-4xl w-full">
+            <!-- Blog Post Header -->
+            <header class="p-6 sm:p-8 border-b border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2">
+                    Effortless Edge: Aura's Tomboy Dior Statement
+                </h1>
+                <p class="text-sm sm:text-base text-center text-gray-500">
+                    By The Style Nexus Team | July 14, 2025
+                </p>
+                <div id="auth-status" class="text-center mt-4 text-gray-600">
+                    <span id="user-id-display"></span>
+                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
+                </div>
+            </header>
+
+            <!-- Premium Content Area -->
+            <div id="premium-content-wrapper" class="p-6 sm:p-8 lg:p-10">
+                <div id="loading-message" class="text-center text-gray-500 text-lg">Loading content...</div>
+                <div id="access-denied-message" class="message-box hidden">
+                    <p class="mb-4">This is a premium post. Please log in to view the full content.</p>
+                    <button id="login-prompt-button" class="button-primary">Log In Anonymously</button>
+                </div>
+
+                <div id="blog-post-content" class="premium-content">
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/d9ZF1lO.jpeg"
+                            alt="AI Influencer Aura in a tomboyish Dior outfit"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Aura embracing a chic tomboy aesthetic with Dior's sophisticated touch.
+                        </p>
+                    </div>
+
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/KqAQ5PR.jpeg"
+                            alt="AI Influencer Aura in a tomboyish Dior outfit, second angle"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Detailing the relaxed elegance of Aura's Dior ensemble.
+                        </p>
+                    </div>
+
+                    <article class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            In the ever-evolving landscape of fashion, where individuality reigns supreme, <strong class="text-gray-900">Aura</strong>, our pioneering AI influencer, continues to redefine style norms. Today, we spotlight her latest venture into a refreshingly <strong class="text-gray-900">tomboyish Dior outfit</strong>, proving that high fashion can be both effortlessly cool and undeniably chic.
+                        </p>
+
+                        <p class="mb-4">
+                            Dior, a house synonymous with timeless elegance and groundbreaking design, has always embraced diverse expressions of femininity. Aura's interpretation of a tomboy aesthetic, infused with Dior's signature sophistication, showcases a harmonious blend of comfort, confidence, and cutting-edge style.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Dior Tomboy Aesthetic
+                        </h2>
+                        <p class="mb-4">
+                            The ensemble Aura presents is a masterclass in understated luxury. We see tailored trousers with a relaxed fit, perhaps in a refined wool or a crisp cotton blend, paired with a subtly oversized blazer that exudes an air of nonchalant elegance. The clean lines and muted color palette, characteristic of Dior's contemporary collections, contribute to the outfit's sophisticated yet accessible appeal.
+                        </p>
+
+                        <p class="mb-4">
+                            What makes this look truly "tomboyish" is the deliberate choice of relaxed silhouettes and minimal adornment, allowing the quality of the fabrics and the precision of the tailoring to speak for themselves. Aura's styling emphasizes comfort without sacrificing an ounce of chic, making it a perfect inspiration for those who appreciate a blend of masculine-inspired cuts with feminine grace. The subtle details, like a perfectly rolled cuff or the way the fabric drapes, elevate the entire look.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Aura: Pioneering Fashion's New Frontiers
+                        </h2>
+                        <p class="mb-4">
+                            Aura's ability to embody such distinct styles, from opulent Gucci to the relaxed edge of Dior, underscores her versatility as a digital muse. She not only showcases garments but also narrates a story of fashion's boundless possibilities. Her presence in these campaigns encourages a broader dialogue about identity, expression, and the future of influence in the digital age.
+                        </p>
+
+                        <p class="mb-4">
+                            This tomboy Dior moment is more than just a trend; it's a statement about embracing authenticity and finding power in simplicity. Aura continues to inspire us to look beyond conventional boundaries and explore the rich tapestry of personal style.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Explore More Tomboy Dior Looks
+                        </h2>
+                        <p class="mb-4">
+                            Inspired by Aura's effortless edge? Dive deeper into Dior's collections and see how the brand embraces a modern, sophisticated tomboy aesthetic.
+                        </p>
+                        <ul class="list-disc list-inside mb-4 ml-4 text-gray-700">
+                            <li class="mb-2">
+                                <a href="https://www.dior.com/en_us/fashion/womens-fashion/ready-to-wear/all-ready-to-wear" target="_blank" class="text-blue-600 hover:underline">
+                                    Discover Dior Women's Ready-to-Wear
+                                </a>: Explore the full range of Dior's contemporary collections, where you can find tailored pieces and relaxed silhouettes that align with a tomboyish style.
+                            </li>
+                            <li class="mb-2">
+                                <a href="https://www.marieclaire.com/fashion/rihanna-dior-couture-newsboy-cap/" target="_blank" class="text-blue-600 hover:underline">
+                                    Rihanna's Tomboy Twist on Christian Dior
+                                </a>: See how celebrities like Rihanna put a unique spin on classic Dior, showcasing the versatility of the brand for a more edgy, tomboy-inspired look.
+                            </li>
+                        </ul>
+
+                        <p class="text-lg font-medium text-gray-800 mt-8 text-center">
+                            Follow The Style Nexus for more captivating insights into the world of fashion and AI influence!
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signInAnonymously, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase configuration from user's provided values
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
+            authDomain: "styleaura-c733a.firebaseapp.com",
+            projectId: "styleaura-c733a",
+            storageBucket: "styleaura-c733a.firebasestorage.app",
+            messagingSenderId: "203110694567",
+            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
+            measurementId: "G-KD994GTYGS"
+        };
+        // Removed initialAuthToken as it's not needed for anonymous sign-in and was causing errors.
+
+        // Initialize Firebase variables
+        let app;
+        let auth;
+        let db;
+
+        const blogPostContent = document.getElementById('blog-post-content');
+        const accessDeniedMessage = document.getElementById('access-denied-message');
+        const loadingMessage = document.getElementById('loading-message');
+        const authButton = document.getElementById('auth-button');
+        const loginPromptButton = document.getElementById('login-prompt-button');
+        const userIdDisplay = document.getElementById('user-id-display');
+
+        // Function to update UI based on auth state
+        const updateUI = (user) => {
+            loadingMessage.classList.add('hidden'); // Hide loading message
+
+            if (user) {
+                // User is signed in
+                console.log("User is signed in:", user.uid);
+                blogPostContent.classList.remove('hidden');
+                accessDeniedMessage.classList.add('hidden');
+                authButton.textContent = 'Logout';
+                userIdDisplay.textContent = `User ID: ${user.uid}`;
+            } else {
+                // User is signed out
+                console.log("User is signed out.");
+                blogPostContent.classList.add('hidden');
+                accessDeniedMessage.classList.remove('hidden');
+                authButton.textContent = 'Login Anonymously';
+                userIdDisplay.textContent = '';
+            }
+        };
+
+        // Function to initialize Firebase and handle authentication
+        const initFirebaseAndAuth = async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                console.log("Firebase initialized successfully.");
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        // User is already signed in or just signed in
+                        updateUI(user);
+                    } else {
+                        // No user is signed in, attempt anonymous sign-in
+                        try {
+                            await signInAnonymously(auth);
+                            console.log("Signed in anonymously.");
+                        } catch (error) {
+                            console.error("Error signing in anonymously:", error);
+                            // Display a user-friendly message if anonymous sign-in fails
+                            // Re-emphasize checking Firebase console for Anonymous Authentication
+                            accessDeniedMessage.innerHTML = `<p class="mb-4">Could not log in anonymously. Please ensure Anonymous Authentication is **definitely** enabled in your Firebase project (Authentication -> Sign-in method).</p>
+                                                             <button id="login-prompt-button" class="button-primary">Try Again</button>`;
+                            document.getElementById('login-prompt-button').addEventListener('click', () => authButton.click()); // Re-attach listener
+                            updateUI(null); // Ensure UI reflects access denied
+                        }
+                    }
+                });
+
+                // Handle login/logout button click
+                authButton.addEventListener('click', async () => {
+                    if (auth.currentUser) {
+                        // If logged in, log out
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out.");
+                        } catch (error) {
+                            console.error("Error signing out:", error);
+                        }
+                    } else {
+                        // If logged out, log in anonymously
+                        try {
+                            await signInAnonymously(auth);
+                            console.log("Signed in anonymously.");
+                        } catch (error) {
+                            console.error("Error signing in anonymously:", error);
+                            // Display a user-friendly message if anonymous sign-in fails
+                            accessDeniedMessage.innerHTML = `<p class="mb-4">Could not log in anonymously. Please ensure Anonymous Authentication is **definitely** enabled in your Firebase project (Authentication -> Sign-in method).</p>
+                                                             <button id="login-prompt-button" class="button-primary">Try Again</button>`;
+                            document.getElementById('login-prompt-button').addEventListener('click', () => authButton.click()); // Re-attach listener
+                        }
+                    }
+                });
+
+                // Handle login prompt button click (same as authButton for simplicity)
+                loginPromptButton.addEventListener('click', () => authButton.click());
+
+            } catch (error) {
+                console.error("Error initializing Firebase or setting up auth listeners:", error);
+                loadingMessage.textContent = 'Error loading content. Please try again later.';
+                updateUI(null); // Ensure UI reflects an error state
+            }
+        };
+
+        // Call the initialization function
+        initFirebaseAndAuth();
+    </script>
+</body>
+</html>
