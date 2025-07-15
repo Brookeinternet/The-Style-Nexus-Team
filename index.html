@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Style Nexus - Aura's Profile (Premium Ready)</title>
+    <title>The Style Nexus - Aura's Profile</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -39,8 +39,6 @@
             object-fit: cover;
         }
     </style>
-    <!-- Stripe.js CDN -->
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body class="antialiased">
     <div class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
@@ -79,16 +77,6 @@
                         <p class="text-sm text-gray-500">Following</p>
                     </div>
                 </div>
-                <div id="auth-status" class="text-center mt-4 text-gray-600">
-                    <span id="user-id-display"></span>
-                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
-                </div>
-                <button id="subscribe-button" class="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-5 rounded-md transition-colors duration-300 shadow-md hidden">
-                    Subscribe to Premium
-                </button>
-                <button id="manage-subscription-button" class="mt-4 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-5 rounded-md transition-colors duration-300 shadow-md hidden">
-                    Manage Subscription
-                </button>
             </header>
 
             <!-- Navigation Tabs (Instagram-like) -->
@@ -112,77 +100,122 @@
                 </ul>
             </nav>
 
-            <!-- Main Content Area (Post Grid) -->
-            <main class="p-4 sm:p-6 lg:p-8">
-                <section id="latest-posts" class="mb-12">
-                    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 text-center">
-                        Latest Posts
-                    </h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <!-- Post 1: Chanel Cute Girl -->
-                        <a href="chanel-cute-girl-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <img
-                                src="https://i.imgur.com/gRDm1Bc.jpeg"
-                                alt="Aura in a cute Chanel outfit"
-                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                                onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Chanel';"
-                            >
-                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <p class="text-white text-center font-semibold text-lg p-4">Chic Charm: Adorable Chanel</p>
-                            </div>
-                        </a>
+            <!-- Main Content Area: Post Grid and Sidebar -->
+            <div class="flex flex-col lg:flex-row p-4 sm:p-6 lg:p-8 gap-8">
+                <!-- Main Content (Post Grid) -->
+                <main class="lg:w-3/4">
+                    <section id="latest-posts" class="mb-12">
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 text-center">
+                            Latest Posts
+                        </h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Post 1: Chanel Cute Girl -->
+                            <a href="chanel-cute-girl-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/gRDm1Bc.jpeg"
+                                    alt="Aura in a cute Chanel outfit"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Chanel';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Chic Charm: Adorable Chanel</p>
+                                </div>
+                            </a>
 
-                        <!-- Post 2: Tomboyish Dior (Premium Post) -->
-                        <a href="dior-tomboy-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <img
-                                src="https://i.imgur.com/d9ZF1lO.jpeg"
-                                alt="Aura in a tomboyish Dior outfit"
-                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                                onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Dior';"
-                            >
-                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <p class="text-white text-center font-semibold text-lg p-4">Effortless Edge: Tomboy Dior <br><span class="text-sm">(Premium)</span></p>
-                            </div>
-                        </a>
+                            <!-- Post 2: Tomboyish Dior -->
+                            <a href="dior-tomboy-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/d9ZF1lO.jpeg"
+                                    alt="Aura in a tomboyish Dior outfit"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Dior';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Effortless Edge: Tomboy Dior</p>
+                                </div>
+                            </a>
 
-                        <!-- Post 3: Louis Vuitton Onthego MM -->
-                        <a href="fashion-blog-post" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <img
-                                src="https://i.imgur.com/tiRhmko.jpeg"
-                                alt="Aura with Louis Vuitton Onthego MM bag"
-                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
-                                onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Louis+Vuitton';"
-                            >
-                            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <p class="text-white text-center font-semibold text-lg p-4">Modern Luxury Muse: LV Moment</p>
-                            </div>
+                            <!-- Post 3: Louis Vuitton Onthego MM -->
+                            <a href="fashion-blog-post" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/tiRhmko.jpeg"
+                                    alt="Aura with Louis Vuitton Onthego MM bag"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Louis+Vuitton';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Modern Luxury Muse: LV Moment</p>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- About Aura Section (hidden by default, can be shown with JS for tab functionality) -->
+                    <section id="about" class="mb-12 text-center bg-blue-50 p-6 rounded-lg shadow-inner hidden">
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+                            About Aura: The AI Influencer
+                        </h2>
+                        <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                            Aura is not just an AI; she's a visionary in the world of digital fashion. Designed to embody the pinnacle of style and grace, Aura explores the intersection of technology and haute couture, bringing you unique perspectives on luxury trends and inspiring a new era of creative expression.
+                        </p>
+                    </section>
+
+                    <!-- Contact Section (hidden by default, can be shown with JS for tab functionality) -->
+                    <section id="contact" class="text-center hidden">
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+                            Connect With Us
+                        </h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Have questions, collaborations, or just want to say hello? Reach out to The Style Nexus team!
+                        </p>
+                        <a href="mailto:info@stylenexus.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg">
+                            Email Us
                         </a>
+                    </section>
+                </main>
+
+                <!-- Sidebar Section -->
+                <aside class="lg:w-1/4">
+                    <!-- Email Sign-up Form -->
+                    <div class="bg-white shadow-md rounded-xl p-6 sm:p-8 mb-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Stay Stylish!</h3>
+                        <p class="text-gray-700 mb-4">
+                            Get the latest fashion trends, exclusive insights, and AI style updates directly to your inbox.
+                        </p>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="email" class="sr-only">Email address</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    autocomplete="email"
+                                    required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                    placeholder="Enter your email"
+                                >
+                            </div>
+                            <button
+                                type="submit"
+                                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
                     </div>
-                </section>
 
-                <!-- About Aura Section (hidden by default, can be shown with JS for tab functionality) -->
-                <section id="about" class="mb-12 text-center bg-blue-50 p-6 rounded-lg shadow-inner hidden">
-                    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
-                        About Aura: The AI Influencer
-                    </h2>
-                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                        Aura is not just an AI; she's a visionary in the world of digital fashion. Designed to embody the pinnacle of style and grace, Aura explores the intersection of technology and haute couture, bringing you unique perspectives on luxury trends and inspiring a new era of creative expression.
-                    </p>
-                </section>
-
-                <!-- Contact Section (hidden by default, can be shown with JS for tab functionality) -->
-                <section id="contact" class="text-center hidden">
-                    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
-                        Connect With Us
-                    </h2>
-                    <p class="text-lg text-gray-700 mb-6">
-                        Have questions, collaborations, or just want to say hello? Reach out to The Style Nexus team!
-                    </p>
-                    <a href="mailto:info@stylenexus.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg">
-                        Email Us
-                    </a>
-                </section>
-            </main>
+                    <!-- Latest Articles (Example) - can be dynamically populated -->
+                    <div class="bg-white shadow-md rounded-xl p-6 sm:p-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">More from The Style Nexus</h3>
+                        <ul class="space-y-3">
+                            <li><a href="fashion-blog-post" class="text-gray-700 hover:text-blue-600">Stellar Style: Aura's Electrifying Gucci Moment</a></li>
+                            <li><a href="fashion-blog-post" class="text-gray-700 hover:text-blue-600">Modern Luxury Muse: Aura's Louis Vuitton Moment</a></li>
+                            <li><a href="dior-tomboy-blog" class="text-gray-700 hover:text-blue-600">Effortless Edge: Aura's Tomboy Dior Statement</a></li>
+                            <li><a href="chanel-cute-girl-blog" class="text-gray-700 hover:text-blue-600">Chic Charm: Aura's Adorable Chanel Ensemble</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
 
             <!-- Footer -->
             <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
@@ -191,236 +224,8 @@
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-        import { getFirestore, doc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
-        // Firebase configuration from user's provided values
-        const firebaseConfig = {
-            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
-            authDomain: "styleaura-c733a.firebaseapp.com",
-            projectId: "styleaura-c733a",
-            storageBucket: "styleaura-c733a.firebasestorage.app",
-            messagingSenderId: "203110694567",
-            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
-            measurementId: "G-KD994GTYGS"
-        };
-        // The __initial_auth_token is provided by the Canvas environment for initial sign-in.
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-
-
-        // Initialize Firebase variables
-        let app;
-        let auth;
-        let db;
-        let currentUser = null; // Track current user
-
-        // Stripe configuration
-        // IMPORTANT: Replace 'YOUR_STRIPE_PUBLISHABLE_KEY' with your actual Stripe Publishable Key (starts with 'pk_test_' or 'pk_live_')
-        const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY');
-        // UPDATED: Using the provided Stripe Price ID
-        const premiumPriceId = 'price_1RkruuGbwmDpCmSf5Tagx4wD';
-
-        const authButton = document.getElementById('auth-button');
-        const userIdDisplay = document.getElementById('user-id-display');
-        const subscribeButton = document.getElementById('subscribe-button');
-        const manageSubscriptionButton = document.getElementById('manage-subscription-button');
-        const followersCountDisplay = document.getElementById('followers-count');
-
-
-        // Function to update UI based on auth state and subscription status
-        const updateUI = async (user) => {
-            currentUser = user; // Update global user state
-
-            if (user) {
-                console.log("User is signed in:", user.uid);
-                authButton.textContent = 'Logout';
-                userIdDisplay.textContent = `User ID: ${user.uid}`;
-
-                // Check subscription status in Firestore
-                // This assumes your backend webhook populates this path after a successful Stripe payment
-                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/subscriptions`, 'premium');
-                
-                // Use onSnapshot for real-time updates to subscription status
-                onSnapshot(userDocRef, (docSnap) => {
-                    if (docSnap.exists() && docSnap.data().active) {
-                        console.log("User is a premium member.");
-                        subscribeButton.classList.add('hidden');
-                        manageSubscriptionButton.classList.remove('hidden');
-                        followersCountDisplay.textContent = '1.5M'; // Example: Premium users see more followers
-                    } else {
-                        console.log("User is not a premium member or subscription is inactive.");
-                        subscribeButton.classList.remove('hidden');
-                        manageSubscriptionButton.classList.add('hidden');
-                        followersCountDisplay.textContent = '1.2M'; // Default followers
-                    }
-                }, (error) => {
-                    console.error("Error listening to subscription status:", error);
-                    // Handle permissions error gracefully, e.g., show subscribe button and default followers
-                    subscribeButton.classList.remove('hidden');
-                    manageSubscriptionButton.classList.add('hidden');
-                    followersCountDisplay.textContent = '1.2M';
-                    userIdDisplay.textContent = `User ID: ${user.uid} (Permissions Error)`; // Indicate issue
-                });
-
-            } else {
-                console.log("User is signed out.");
-                authButton.textContent = 'Login Anonymously';
-                userIdDisplay.textContent = '';
-                subscribeButton.classList.remove('hidden'); // Show subscribe if not logged in
-                manageSubscriptionButton.classList.add('hidden');
-                followersCountDisplay.textContent = '1.2M'; // Default followers
-            }
-        };
-
-        // Function to initialize Firebase and handle authentication
-        const initFirebaseAndAuth = async () => {
-            try {
-                app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-                console.log("Firebase initialized successfully.");
-
-                // Listen for authentication state changes
-                onAuthStateChanged(auth, async (user) => {
-                    if (user) {
-                        // User is already signed in or just signed in
-                        updateUI(user);
-                    } else {
-                        // No user is signed in, attempt anonymous sign-in if initial token is provided
-                        if (initialAuthToken) {
-                            try {
-                                await signInWithCustomToken(auth, initialAuthToken);
-                                console.log("Signed in with custom token.");
-                            } catch (error) {
-                                console.error("Error signing in with custom token:", error);
-                                // Fallback to anonymous if custom token fails
-                                try {
-                                    await signInAnonymously(auth);
-                                    console.log("Signed in anonymously after custom token failure.");
-                                } catch (anonError) {
-                                    console.error("Error signing in anonymously:", anonError);
-                                    // Display a user-friendly message if anonymous sign-in fails
-                                    alert('Failed to log in automatically. Please ensure Anonymous Authentication is enabled in your Firebase project settings.');
-                                    updateUI(null); // Show access denied if all sign-in methods fail
-                                }
-                            }
-                        } else {
-                            // No initial token, just show access denied
-                            updateUI(null);
-                        }
-                    }
-                });
-
-                // Handle login/logout button click
-                authButton.addEventListener('click', async () => {
-                    if (auth.currentUser) {
-                        // If logged in, log out
-                        try {
-                            await signOut(auth);
-                            console.log("User signed out.");
-                        } catch (error) {
-                            console.error("Error signing out:", error);
-                        }
-                    } else {
-                        // If logged out, log in anonymously
-                        try {
-                            await signInAnonymously(auth);
-                            console.log("Signed in anonymously.");
-                        } catch (error) {
-                            console.error("Error signing in anonymously:", error);
-                            // Display a user-friendly message if anonymous sign-in fails
-                            alert('Failed to log in anonymously. Please ensure Anonymous Authentication is enabled in your Firebase project settings.');
-                        }
-                    }
-                });
-
-                // Handle Subscribe button click
-                subscribeButton.addEventListener('click', async () => {
-                    if (!currentUser) {
-                        alert('Please log in first to subscribe.');
-                        return;
-                    }
-
-                    // This is a conceptual step. In a real application, you would make a fetch request
-                    // to your backend (e.g., a Firebase Cloud Function) to create the Stripe Checkout Session.
-                    // The backend would use your Stripe Secret Key to do this securely.
-                    alert('Initiating Stripe Checkout. This requires a backend to securely create the checkout session.');
-
-                    // Example of what your backend function might return, and how you'd use it:
-                    /*
-                    try {
-                        const response = await fetch('/create-checkout-session', { // Replace with your actual backend endpoint
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                priceId: premiumPriceId,
-                                userId: currentUser.uid,
-                                // Add success_url and cancel_url for redirection after checkout
-                                successUrl: window.location.origin + '/success.html', // Example success page
-                                cancelUrl: window.location.origin + '/cancel.html',   // Example cancel page
-                            }),
-                        });
-                        const session = await response.json();
-                        if (session.id) {
-                            // Redirect to Stripe Checkout
-                            stripe.redirectToCheckout({ sessionId: session.id });
-                        } else {
-                            alert('Error creating checkout session. Please try again.');
-                            console.error('Backend error:', session.error);
-                        }
-                    } catch (error) {
-                        console.error('Error fetching checkout session:', error);
-                        alert('Could not start checkout. Please try again later.');
-                    }
-                    */
-                });
-
-                // Handle Manage Subscription button click
-                manageSubscriptionButton.addEventListener('click', () => {
-                    alert('This would redirect to a Stripe Customer Portal or your custom subscription management page.');
-                    // In a real application, you would make a fetch request to your backend
-                    // to create a Stripe Customer Portal session, then redirect the user.
-                    /*
-                    try {
-                        const response = await fetch('/create-customer-portal-session', { // Replace with your actual backend endpoint
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ userId: currentUser.uid }), // Pass user ID to identify customer
-                        });
-                        const data = await response.json();
-                        if (data.url) {
-                            window.location.href = data.url; // Redirect to Stripe Customer Portal
-                        } else {
-                            alert('Error accessing subscription management. Please try again.');
-                            console.error('Backend error:', data.error);
-                        }
-                    } catch (error) {
-                        console.error('Error fetching customer portal session:', error);
-                        alert('Could not access subscription management. Please try again later.');
-                    }
-                    */
-                });
-
-
-            } catch (error) {
-                console.error("Error initializing Firebase or setting up auth listeners:", error);
-                // For a real app, you'd have a proper error display.
-                alert('An error occurred during Firebase initialization. Please check console.');
-                updateUI(null); // Ensure UI reflects an error state
-            }
-        };
-
-        // Call the initialization function
-        initFirebaseAndAuth();
-
-        // Simple JavaScript for tab functionality (existing from previous turn)
+    <script>
+        // Simple JavaScript for tab functionality
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('nav ul li a');
             const sections = document.querySelectorAll('main section');
