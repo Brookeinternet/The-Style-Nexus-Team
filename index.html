@@ -38,6 +38,95 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Styles for the auth forms */
+        .auth-container {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+            max-width: 400px; /* Adjusted for sidebar */
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2rem; /* Spacing below auth form in sidebar */
+        }
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #4b5563; /* gray-700 */
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.375rem; /* rounded-md */
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+            color: #374151; /* gray-700 */
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #3b82f6; /* blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            width: 100%;
+            cursor: pointer;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .toggle-link {
+            color: #3b82f6; /* blue-500 */
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        .error-message {
+            color: #ef4444; /* red-500 */
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+        .success-message {
+            color: #22c55e; /* green-500 */
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+        .user-info {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f3f4f6; /* gray-100 */
+            border-radius: 0.5rem;
+            text-align: left;
+        }
+        .user-info p {
+            margin-bottom: 0.5rem;
+        }
+        .user-info button {
+            background-color: #ef4444; /* red-500 */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .user-info button:hover {
+            background-color: #dc2626; /* red-600 */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -126,7 +215,7 @@
                             <a href="dior-tomboy-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
                                     src="https://i.imgur.com/d9ZF1lO.jpeg"
-                                    alt="Aura in a tomboyish Dior outfit"
+                                    alt="AI Influencer Aura in a tomboyish Dior outfit"
                                     class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
                                     onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Dior';"
                                 >
@@ -176,32 +265,52 @@
 
                 <!-- Sidebar Section -->
                 <aside class="lg:w-1/4">
-                    <!-- Email Sign-up Form -->
-                    <div class="bg-white shadow-md rounded-xl p-6 sm:p-8 mb-8">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Stay Stylish!</h3>
-                        <p class="text-gray-700 mb-4">
-                            Get the latest fashion trends, exclusive insights, and AI style updates directly to your inbox.
-                        </p>
-                        <form class="space-y-4">
-                            <div>
-                                <label for="email" class="sr-only">Email address</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    autocomplete="email"
-                                    required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                    placeholder="Enter your email"
-                                >
+                    <!-- Firebase Email/Password Auth Form -->
+                    <div class="auth-container">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-6" id="auth-title">Sign In</h2>
+
+                        <!-- Sign In Form -->
+                        <form id="signInForm" class="hidden">
+                            <div class="form-group">
+                                <label for="signInEmail">Email</label>
+                                <input type="email" id="signInEmail" placeholder="your@example.com" required>
                             </div>
-                            <button
-                                type="submit"
-                                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out"
-                            >
-                                Subscribe
-                            </button>
+                            <div class="form-group">
+                                <label for="signInPassword">Password</label>
+                                <input type="password" id="signInPassword" placeholder="********" required>
+                            </div>
+                            <button type="submit" class="button-primary">Sign In</button>
+                            <p class="error-message" id="signInError"></p>
                         </form>
+
+                        <!-- Sign Up Form -->
+                        <form id="signUpForm">
+                            <div class="form-group">
+                                <label for="signUpEmail">Email</label>
+                                <input type="email" id="signUpEmail" placeholder="your@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signUpPassword">Password</label>
+                                <input type="password" id="signUpPassword" placeholder="********" required>
+                            </div>
+                            <button type="submit" class="button-primary">Sign Up</button>
+                            <p class="error-message" id="signUpError"></p>
+                            <p class="success-message" id="signUpSuccess"></p>
+                        </form>
+
+                        <p class="text-sm text-gray-600 mt-4">
+                            <span id="toggleAuthMode" class="toggle-link">
+                                Already have an account? Sign In
+                            </span>
+                        </p>
+
+                        <!-- User Info Display (after login) -->
+                        <div id="userInfo" class="user-info hidden">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Welcome!</h3>
+                            <p><strong>User ID:</strong> <span id="displayUserId"></span></p>
+                            <p><strong>Email:</strong> <span id="displayUserEmail"></span></p>
+                            <button id="signOutButton">Sign Out</button>
+                        </div>
                     </div>
 
                     <!-- Latest Articles (Example) - can be dynamically populated -->
@@ -218,199 +327,13 @@
             </div>
 
             <!-- Footer -->
-            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
-                &copy; 2025 The Style Nexus. All rights reserved.
+            <footer class="bg-gray-800 text-white p-6 sm:p-8 text-center mt-8">
+                <p>&copy; 2025 The Style Nexus. All rights reserved.</p>
             </footer>
         </div>
     </div>
 
-    <script>
-        // Simple JavaScript for tab functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('nav ul li a');
-            const sections = document.querySelectorAll('main section');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default anchor jump
-
-                    // Remove active styles from all tabs
-                    tabs.forEach(t => {
-                        t.classList.remove('text-blue-600', 'border-b-2', 'border-blue-600');
-                        t.classList.add('text-gray-700', 'hover:text-blue-600');
-                    });
-
-                    // Add active styles to clicked tab
-                    e.target.classList.add('text-blue-600', 'border-b-2', 'border-blue-600');
-                    e.target.classList.remove('text-gray-700', 'hover:text-blue-600');
-
-                    // Hide all sections
-                    sections.forEach(section => {
-                        section.classList.add('hidden');
-                    });
-
-                    // Show the target section
-                    const targetId = e.target.getAttribute('href');
-                    document.querySelector(targetId).classList.remove('hidden');
-
-                    // Scroll to the top of the main content area for a smoother experience
-                    document.querySelector('.content-container').scrollTop = 0;
-                });
-            });
-
-            // Set initial active tab and display corresponding section
-            // This ensures "Latest Posts" is visible on load
-            document.querySelector('nav ul li a[href="#latest-posts"]').click();
-        });
-    </script>
-     /* Custom font for a more elegant look */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f8f8; /* Light grey background */
-            color: #333; /* Darker text for readability */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .auth-container {
-            background-color: #fff;
-            padding: 2.5rem;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #4b5563; /* gray-700 */
-        }
-        .form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db; /* gray-300 */
-            border-radius: 0.375rem; /* rounded-md */
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-            font-size: 1rem;
-            color: #374151; /* gray-700 */
-        }
-        .form-group input:focus {
-            outline: none;
-            border-color: #3b82f6; /* blue-500 */
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        }
-        .button-primary {
-            background-color: #3b82f6; /* blue-500 */
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: background-color 0.2s;
-            width: 100%;
-            cursor: pointer;
-        }
-        .button-primary:hover {
-            background-color: #2563eb; /* blue-600 */
-        }
-        .toggle-link {
-            color: #3b82f6; /* blue-500 */
-            cursor: pointer;
-            text-decoration: underline;
-            margin-top: 1rem;
-            display: inline-block;
-        }
-        .error-message {
-            color: #ef4444; /* red-500 */
-            margin-top: 1rem;
-            font-size: 0.875rem;
-        }
-        .success-message {
-            color: #22c55e; /* green-500 */
-            margin-top: 1rem;
-            font-size: 0.875rem;
-        }
-        .user-info {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background-color: #f3f4f6; /* gray-100 */
-            border-radius: 0.5rem;
-            text-align: left;
-        }
-        .user-info p {
-            margin-bottom: 0.5rem;
-        }
-        .user-info button {
-            background-color: #ef4444; /* red-500 */
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: background-color 0.2s;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-        .user-info button:hover {
-            background-color: #dc2626; /* red-600 */
-        }
-    </style>
-</head>
-<body>
-    <div class="auth-container">
-        <h2 class="text-2xl font-bold text-gray-800 mb-6" id="auth-title">Sign In</h2>
-
-        <!-- Sign In Form -->
-        <form id="signInForm" class="hidden">
-            <div class="form-group">
-                <label for="signInEmail">Email</label>
-                <input type="email" id="signInEmail" placeholder="your@example.com" required>
-            </div>
-            <div class="form-group">
-                <label for="signInPassword">Password</label>
-                <input type="password" id="signInPassword" placeholder="********" required>
-            </div>
-            <button type="submit" class="button-primary">Sign In</button>
-            <p class="error-message" id="signInError"></p>
-        </form>
-
-        <!-- Sign Up Form -->
-        <form id="signUpForm">
-            <div class="form-group">
-                <label for="signUpEmail">Email</label>
-                <input type="email" id="signUpEmail" placeholder="your@example.com" required>
-            </div>
-            <div class="form-group">
-                <label for="signUpPassword">Password</label>
-                <input type="password" id="signUpPassword" placeholder="********" required>
-            </div>
-            <button type="submit" class="button-primary">Sign Up</button>
-            <p class="error-message" id="signUpError"></p>
-            <p class="success-message" id="signUpSuccess"></p>
-        </form>
-
-        <p class="text-sm text-gray-600 mt-4">
-            <span id="toggleAuthMode" class="toggle-link">
-                Already have an account? Sign In
-            </span>
-        </p>
-
-        <!-- User Info Display (after login) -->
-        <div id="userInfo" class="user-info hidden">
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Welcome!</h3>
-            <p><strong>User ID:</strong> <span id="displayUserId"></span></p>
-            <p><strong>Email:</strong> <span id="displayUserEmail"></span></p>
-            <button id="signOutButton">Sign Out</button>
-        </div>
-    </div>
-
-    <!-- Firebase SDKs -->
+    <!-- Firebase SDKs and Authentication Logic -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
         import {
@@ -536,7 +459,9 @@
                 console.error('Sign in error:', error.code, error.message);
                 let errorMessage = 'An error occurred during sign in.';
                 switch (error.code) {
-                    case 'auth/invalid-credential':
+                    case 'auth/invalid-credential': // Use invalid-credential for generic auth failures
+                    case 'auth/wrong-password': // Older error code, good to include for robustness
+                    case 'auth/user-not-found': // Older error code, good to include for robustness
                         errorMessage = 'Invalid email or password.';
                         break;
                     case 'auth/user-disabled':
@@ -576,7 +501,7 @@
                 // User is signed out
                 userInfo.classList.add('hidden');
                 toggleAuthMode.classList.remove('hidden'); // Show toggle link
-                // Reset to default sign up view if not already in sign in mode
+                // Determine which form to show based on isSignInMode
                 if (isSignInMode) {
                     signInForm.classList.remove('hidden');
                     signUpForm.classList.add('hidden');
@@ -595,11 +520,15 @@
             }
         });
 
-        // Initialize the view based on current mode
-        toggleForms(); // Call once to set initial state to Sign In (as per user's previous request context)
-        toggleForms(); // Call again to set initial state to Sign Up (default for this new form)
-        // Or, if you want it to start on Sign In:
-        // toggleForms(); // Call once to set initial state to Sign In
+        // Initialize the view to show the Sign In form by default when not logged in
+        // This will be called once after the script loads
+        if (!auth.currentUser) { // Only toggle if no user is already logged in on load
+            isSignInMode = true; // Set mode to Sign In
+            signInForm.classList.remove('hidden');
+            signUpForm.classList.add('hidden');
+            authTitle.textContent = 'Sign In';
+            toggleAuthMode.textContent = 'Don\'t have an account? Sign Up';
+        }
     </script>
 </body>
 </html>
