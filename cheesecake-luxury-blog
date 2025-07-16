@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Indulgence: Aura's Luxury Cheesecake Experience (Premium)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333; /* Darker text for readability */
+        }
+        /* Styles for premium content access */
+        .premium-content {
+            display: none; /* Hidden by default until authenticated and subscribed */
+        }
+        .message-box {
+            background-color: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffecb5;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .button-secondary {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #4b5563; /* gray-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+            margin-left: 0.5rem; /* Spacing between buttons */
+        }
+        .button-secondary:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .loading-indicator {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-4xl w-full">
+            <!-- Blog Post Header -->
+            <header class="p-6 sm:p-8 border-b border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2">
+                    Sweet Indulgence: Aura's Luxury Cheesecake Experience
+                </h1>
+                <p class="text-sm sm:text-base text-center text-gray-500">
+                    By The Style Nexus Team | July 15, 2025
+                </p>
+                <div id="auth-status" class="text-center mt-4 text-gray-600">
+                    <span id="user-id-display"></span>
+                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
+                    <button id="subscribe-button" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 px-3 rounded-md hidden">Subscribe to Premium</button>
+                    <button id="manage-subscription-button" class="ml-2 bg-gray-600 hover:bg-gray-700 text-white text-sm py-1 px-3 rounded-md hidden">Manage Subscription</button>
+                </div>
+            </header>
+
+            <!-- Premium Content Wrapper -->
+            <div id="premium-content-wrapper" class="p-6 sm:p-8 lg:p-10">
+                <div id="loading-message" class="loading-indicator">Loading content...</div>
+                <div id="access-denied-message" class="message-box hidden">
+                    <p class="mb-4">This is a premium article. Please log in or subscribe to view the full content.</p>
+                    <button id="login-prompt-button" class="button-primary">Log In Anonymously</button>
+                    <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>
+                </div>
+
+                <div id="blog-post-content" class="premium-content">
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/MOKAZYx.jpeg"
+                            alt="AI Influencer Aura enjoying cheesecake at a luxury restaurant"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Aura savoring a delectable cheesecake in an opulent setting. Her expression, a blend of contentment and refined pleasure, perfectly captures the essence of the moment.
+                        </p>
+                    </div>
+
+                    <article class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            In the captivating world of <strong class="text-gray-900">Aura</strong>, where every experience is meticulously curated and elevated to an art form, our AI influencer recently treated herself to a moment of pure, unadulterated bliss. This feature invites you to join her as she indulges in a slice of exquisite cheesecake at a truly luxurious establishment. It's a narrative that not only highlights a delightful culinary adventure but also showcases Aura's impeccable style, featuring a chic white blouse that perfectly complements the opulent surroundings.
+                        </p>
+                        <p class="mb-4">
+                            Aura's philosophy of living extends beyond mere aesthetics; it embraces sensory pleasures and cultural appreciation. This particular outing was a testament to her discerning taste, where every detail, from her attire to the ambiance and the chosen dessert, contributed to an unforgettable experience.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Perfect Ensemble: Aura's White Blouse
+                        </h2>
+                        <p class="mb-4">
+                            For this sweet occasion, Aura chose a crisp <strong class="text-900">white blouse</strong>, a timeless staple that effortlessly exudes sophistication and grace. The blouse, likely sourced from a renowned retailer like Nordstrom, perfectly harmonized with the refined ambiance of the luxury restaurant. Its pristine white hue, combined with clean lines and an elegant drape, spoke volumes about Aura's minimalist yet impactful style. This choice underscored her understanding that true elegance often lies in simplicity and the quality of foundational pieces. The fabric, perhaps a luxurious silk or a finely woven cotton, shimmered subtly under the restaurant's soft lighting, adding to her radiant presence. You can find a wide selection of <a href="https://www.nordstrom.com/browse/women/clothing/tops-tees/blouses?filterByColor=white" target="_blank" class="text-blue-600 hover:underline">white blouses at Nordstrom</a>, or explore other exquisite designer blouses from luxury retailers like <a href="https://www.net-a-porter.com/en-us/shop/clothing/tops/blouses" target="_blank" class="text-blue-600 hover:underline">NET-A-PORTER</a>, <a href="https://www.farfetch.com/shopping/women/blouses-1/items.aspx" target="_blank" class="text-blue-600 hover:underline">FARFETCH</a>, and <a href="https://www.mytheresa.com/us/en/women/clothing/tops/blouses" target="_blank" class="text-blue-600 hover:underline">Mytheresa</a>, to recreate Aura's understated chic.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            A Slice of History: The Enduring Story of Cheesecake
+                        </h2>
+                        <p class="mb-4">
+                            Cheesecake, a dessert beloved across cultures and generations, boasts a surprisingly ancient and rich history. Its origins can be traced back over 4,000 years to ancient Greece, where it was a simple yet energizing delicacy served to athletes during the revered Olympic Games. The Romans later adapted the recipe, enriching it with eggs and spreading its popularity across their vast empire. As centuries passed, European variations emerged, each reflecting the distinct dairy products and culinary traditions of different regions. The creamy, rich cheesecake most familiar to us today, particularly the iconic "New York-style," is an American innovation, born from the accidental invention of cream cheese in the late 19th century. This delightful dessert has truly evolved through millennia of culinary artistry, transforming from a basic energy source into a sophisticated confection. Dive deeper into the fascinating <a href="https://www.cheesetique.com/news-item/a-brief-history-of-cheesecake-from-ancient-greece-to-modern-confection/" target="_blank" class="text-blue-600 hover:underline">history of cheesecake</a> to appreciate its journey through time.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Dining in Grandeur: The Evolution of Luxury Restaurants
+                        </h2>
+                        <div class="mb-8">
+                            <img
+                                src="https://i.imgur.com/OcXMaJW.jpeg"
+                                alt="Interior of a luxury restaurant with elegant decor"
+                                class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                            >
+                            <p class="text-center text-sm text-gray-400 mt-2">
+                                The exquisite interior of a fine dining establishment, setting the scene for a memorable meal. Every detail, from the lighting to the table settings, speaks of unparalleled elegance.
+                            </p>
+                        </div>
+                        <p class="mb-4">
+                            The concept of luxury restaurants, or "fine dining," also boasts a rich lineage, tracing its roots back to the opulent royal courts of 17th-century Europe. These exclusive settings were where culinary artistry first flourished, with elaborate multi-course feasts prepared for nobility. Following the French Revolution, skilled chefs, now without their aristocratic patrons, began opening public establishments. These early restaurants, though still catering to the wealthy, democratized (to an extent) the opulent culinary experiences previously reserved for the elite. They emphasized meticulous preparation, impeccable service, and a curated ambiance, laying the groundwork for the Michelin-starred establishments and world-renowned dining rooms of today. Modern fine dining continues to evolve, embracing global flavors, sustainable practices, and immersive experiential elements, offering more than just a meal but a complete sensory journey. Learn more about the captivating <a href="https://www.gradito.com/blog/the-evolution-of-fine-dining-trends-shaping-luxury-cuisine" target="_blank" class="text-blue-600 hover:underline">evolution of fine dining</a> and its enduring appeal.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Aura's Discerning Choice: The Perfect Cheesecake
+                        </h2>
+                        <p class="mb-4">
+                            When it came to selecting her dessert, Aura approached the menu with her characteristic discernment, a trait that defines her approach to all things luxurious. The restaurant's dessert offerings were undoubtedly a work of art, each option a tempting masterpiece designed to tantalize the senses. Aura, with her refined digital palate and keen eye for perfection, likely considered not just the flavor profile, but also the intricate presentation, the textural harmony, and the subtle nuances of each cheesecake variation. Perhaps she was drawn to a classic New York-style, celebrated for its dense, velvety creaminess and a hint of vanilla, or perhaps a lighter, more contemporary rendition infused with seasonal fruits or exotic spices. Her ultimate choice was a reflection of her appreciation for culinary excellence, opting for a dessert that promised both exquisite taste and a visually stunning presentation, perfectly complementing the grandeur of her surroundings. This careful selection ensured her indulgence was not just sweet, but a truly memorable and perfectly executed part of her luxurious experience, a testament to her belief that every detail contributes to the overall masterpiece of life.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Aura: The Art of Living Luxuriously
+                        </h2>
+                        <p class="mb-4">
+                            Aura's delightful cheesecake experience is more than just a meal; it's a profound testament to the art of living beautifully and intentionally. From her elegantly chosen attire that blended seamlessly with the opulent setting, to her choice of a historically rich dessert enjoyed in a grand environment, she embodies the perfect fusion of fashion, culture, and culinary pleasure. Aura continually inspires us to seek out and appreciate the finer details in life, transforming what might be considered ordinary moments into extraordinary memories. Her ability to find joy in these curated experiences serves as a reminder that true luxury is a state of mind, an appreciation for quality, and a celebration of life's most exquisite offerings.
+                        </p>
+
+                        <p class="text-lg font-medium text-gray-800 mt-8 text-center">
+                            Join The Style Nexus for more exclusive insights into the world of AI fashion and luxury living!
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signInAnonymously, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase configuration (replace with your actual project details)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
+            authDomain: "styleaura-c733a.firebaseapp.com",
+            projectId: "styleaura-c733a",
+            storageBucket: "styleaura-c733a.firebasestorage.app",
+            messagingSenderId: "203110694567",
+            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
+            measurementId: "G-KD994GTYGS"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'; // Use provided app ID or default
+
+        // Initialize Firebase variables
+        let app;
+        let auth;
+        let db;
+
+        // Get references to HTML elements
+        const blogPostContent = document.getElementById('blog-post-content');
+        const accessDeniedMessage = document.getElementById('access-denied-message');
+        const loadingMessage = document.getElementById('loading-message');
+        const authButton = document.getElementById('auth-button');
+        const loginPromptButton = document.getElementById('login-prompt-button');
+        const subscribePromptButton = document.getElementById('subscribe-prompt-button');
+        const userIdDisplay = document.getElementById('user-id-display');
+        const subscribeButton = document.getElementById('subscribe-button');
+        const manageSubscriptionButton = document.getElementById('manage-subscription-button');
+
+        // IMPORTANT: Replaced with your actual Stripe product link
+        const STRIPE_PRODUCT_LINK = "https://buy.stripe.com/6oU00jacq6PieXt2hP8bS00";
+
+
+        // Function to update UI based on auth state and subscription status
+        const updateUI = async (user) => {
+            loadingMessage.classList.add('hidden'); // Hide loading message
+
+            if (user) {
+                console.log("User is signed in:", user.uid);
+                authButton.textContent = 'Logout';
+                userIdDisplay.textContent = `User ID: ${user.uid}`;
+
+                // Check subscription status in Firestore
+                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/subscriptions`, 'premium');
+                console.log(`Checking subscription at Firestore path: artifacts/${appId}/users/${user.uid}/subscriptions/premium`); // Log the path
+                
+                // Use onSnapshot for real-time updates to subscription status
+                onSnapshot(userDocRef, (docSnap) => {
+                    console.log("Firestore docSnap exists:", docSnap.exists());
+                    if (docSnap.exists()) {
+                        console.log("Firestore docSnap data:", docSnap.data());
+                    }
+
+                    if (docSnap.exists() && docSnap.data().active) {
+                        console.log("User is a premium member.");
+                        blogPostContent.classList.remove('hidden');
+                        accessDeniedMessage.classList.add('hidden');
+                        subscribeButton.classList.add('hidden');
+                        manageSubscriptionButton.classList.remove('hidden');
+                    } else {
+                        console.log("User is not a premium member or subscription is inactive.");
+                        blogPostContent.classList.add('hidden');
+                        accessDeniedMessage.classList.remove('hidden');
+                        subscribeButton.classList.remove('hidden');
+                        manageSubscriptionButton.classList.add('hidden');
+                    }
+                }, (error) => {
+                    // This error callback is triggered if there are permission issues or other Firestore errors
+                    console.error("Error listening to subscription status:", error);
+                    let errorMessage = "Error checking subscription status. Please ensure your Firebase Firestore Security Rules allow read access to 'artifacts/{appId}/users/{userId}/subscriptions/premium' for authenticated users.";
+                    if (error.code === 'permission-denied') {
+                        errorMessage = `Error: Missing or insufficient permissions. Please check your Firebase Firestore Security Rules. You need rules like:
+                                        match /artifacts/{appId}/users/{userId}/subscriptions/{document=**} {
+                                            allow read: if request.auth != null && request.auth.uid == userId;
+                                        }`;
+                    }
+                    
+                    blogPostContent.classList.add('hidden');
+                    accessDeniedMessage.classList.remove('hidden');
+                    accessDeniedMessage.innerHTML = `<p class="mb-4">${errorMessage}</p>
+                                                     <button id="login-prompt-button" class="button-primary">Log In Anonymously</button>
+                                                     <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>`;
+                    // Re-attach listeners for the new buttons if they were re-rendered
+                    document.getElementById('login-prompt-button').addEventListener('click', () => authButton.click());
+                    document.getElementById('subscribe-prompt-button').addEventListener('click', () => {
+                        window.location.href = STRIPE_PRODUCT_LINK; // Redirect to Stripe product link
+                    });
+
+                    subscribeButton.classList.remove('hidden');
+                    manageSubscriptionButton.classList.add('hidden');
+                    userIdDisplay.textContent = `User ID: ${user.uid} (Subscription check failed)`; // Indicate issue
+                });
+
+            } else {
+                console.log("User is signed out.");
+                blogPostContent.classList.add('hidden');
+                accessDeniedMessage.classList.remove('hidden');
+                authButton.textContent = 'Login Anonymously';
+                userIdDisplay.textContent = '';
+                subscribeButton.classList.remove('hidden'); // Show subscribe if not logged in
+                manageSubscriptionButton.classList.add('hidden');
+            }
+        };
+
+        // Function to initialize Firebase and handle authentication
+        const initFirebaseAndAuth = async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                console.log("Firebase initialized successfully.");
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        updateUI(user);
+                    } else {
+                        try {
+                            await signInAnonymously(auth);
+                            console.log("Signed in anonymously.");
+                        } catch (error) {
+                            console.error("Error signing in anonymously:", error);
+                            // Custom message box instead of alert
+                            accessDeniedMessage.innerHTML = `<p class="mb-4">Could not log in anonymously. Please ensure Anonymous Authentication is **definitely** enabled in your Firebase project (Authentication -> Sign-in method).</p>
+                                                             <button id="login-prompt-button" class="button-primary">Try Again</button>`;
+                            // Re-attach listener for the new button
+                            document.getElementById('login-prompt-button').addEventListener('click', () => authButton.click());
+                            updateUI(null);
+                        }
+                    }
+                });
+
+                // Handle login/logout button click
+                authButton.addEventListener('click', async () => {
+                    if (auth.currentUser) {
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out.");
+                        } catch (error) {
+                            console.error("Error signing out:", error);
+                        }
+                    } else {
+                        try {
+                            await signInAnonymously(auth);
+                            console.log("Signed in anonymously.");
+                        } catch (error) {
+                            console.error("Error signing in anonymously:", error);
+                            accessDeniedMessage.innerHTML = `<p class="mb-4">Could not log in anonymously. Please ensure Anonymous Authentication is **definitely** enabled in your Firebase project (Authentication -> Sign-in method).</p>
+                                                             <button id="login-prompt-button" class="button-primary">Try Again</button>`;
+                            document.getElementById('login-prompt-button').addEventListener('click', () => authButton.click());
+                        }
+                    }
+                });
+
+                // Handle login prompt button click (same as authButton for simplicity)
+                loginPromptButton.addEventListener('click', () => authButton.click());
+
+                // Redirect to Stripe product link when subscribe button is clicked
+                subscribeButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                subscribePromptButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                // Placeholder for manage subscription button - in a real app, this would link to Stripe Customer Portal
+                manageSubscriptionButton.addEventListener('click', () => {
+                    alert('Redirecting to subscription management. (Requires backend integration for Stripe Customer Portal)');
+                    // In a real app, you'd trigger your backend function to create a Stripe Customer Portal Session
+                });
+
+
+            } catch (error) {
+                console.error("Error initializing Firebase or setting up auth listeners:", error);
+                loadingMessage.textContent = 'Error loading content. Please try again later.';
+                updateUI(null);
+            }
+        };
+
+        // Call the initialization function
+        initFirebaseAndAuth();
+    </script>
+</body>
+</html>
