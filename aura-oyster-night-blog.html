@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura's Perfect Evening: White Blouse & Luxury Oysters (Premium)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333; /* Darker text for readability */
+        }
+        /* Styles for premium content access */
+        .premium-content {
+            display: none; /* Hidden by default until authenticated and subscribed */
+        }
+        .message-box {
+            background-color: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffecb5;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .button-secondary {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #4b5563; /* gray-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+            margin-left: 0.5rem; /* Spacing between buttons */
+        }
+        .button-secondary:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .loading-indicator {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-4xl w-full">
+            <!-- Blog Post Header -->
+            <header class="p-6 sm:p-8 border-b border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2">
+                    Aura's Perfect Evening: White Blouse & Luxury Oysters
+                </h1>
+                <p class="text-sm sm:text-base text-center text-gray-500">
+                    By The Style Nexus Team | July 16, 2025
+                </p>
+                <div id="auth-status" class="text-center mt-4 text-gray-600">
+                    <span id="user-id-display"></span>
+                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
+                    <button id="subscribe-button" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 px-3 rounded-md hidden">Subscribe to Premium</button>
+                    <button id="manage-subscription-button" class="ml-2 bg-gray-600 hover:bg-gray-700 text-white text-sm py-1 px-3 rounded-md hidden">Manage Subscription</button>
+                </div>
+            </header>
+
+            <!-- Premium Content Wrapper -->
+            <div id="premium-content-wrapper" class="p-6 sm:p-8 lg:p-10">
+                <div id="loading-message" class="loading-indicator">Loading content...</div>
+                <div id="access-denied-message" class="message-box hidden">
+                    <p class="mb-4">This is a premium article. Please log in or subscribe to view the full content.</p>
+                    <button id="login-prompt-button" class="button-primary">Login</button>
+                    <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>
+                </div>
+
+                <div id="blog-post-content" class="premium-content">
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/xYd5paX.jpeg"
+                            alt="AI Influencer Aura enjoying a night out"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Aura, radiating confidence and style on a perfect evening out. Her poised demeanor and elegant attire set the tone for a night of refined indulgence.
+                        </p>
+                    </div>
+
+                    <article class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            In the vibrant tapestry of luxury living, <strong class="text-gray-900">Aura</strong>, our digital style icon, knows how to curate an unforgettable evening. This feature takes us along for her perfect night out, showcasing a classic <strong class="text-gray-900">white blouse from Nordstrom</strong> paired with the refined indulgence of fresh oysters at a high-end restaurant. It's a testament to timeless elegance and sophisticated tastes, proving that true luxury is found in the harmonious blend of impeccable style and exquisite culinary experiences.
+                        </p>
+                        <p class="mb-4">
+                            Aura's philosophy is not just about wearing designer labels, but about embodying a lifestyle where every choice reflects quality, comfort, and an appreciation for the finer details. This evening was a prime example, meticulously designed to delight the senses.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Ensemble: Effortless White Blouse from Nordstrom
+                        </h2>
+                        <p class="mb-4">
+                            For her evening of indulgence, Aura opted for a crisp, elegantly tailored white blouse. This wardrobe essential, a versatile piece often found at esteemed retailers like Nordstrom, perfectly embodies understated chic. Nordstrom is celebrated for its diverse selection of blouses, ranging from classic button-downs in crisp cotton poplin to flowing silk designs and contemporary styles with unique details like subtle ruffles or intricate embroidery. Aura's choice highlights the blouse's ability to be both simple and striking, providing a perfect canvas for personal style that transitions seamlessly from a casual daytime affair to an upscale dinner. The beauty of such a piece lies in its impeccable fit and the quality of its fabric, allowing it to drape beautifully and exude quiet confidence. You can explore a wide range of beautiful <a href="https://www.nordstrom.com/browse/women/clothing/tops-tees/blouses?filterByColor=white" target="_blank" class="text-blue-600 hover:underline">white blouses at Nordstrom</a>, or discover other elegant options across their broader <a href="https://www.nordstrom.com/browse/women/clothing/tops-tees/blouses" target="_blank" class="text-blue-600 hover:underline">blouses section</a>, ensuring you find the perfect piece to elevate your own wardrobe.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Culinary Delight: The Art and Luxury of Oysters
+                        </h2>
+                        <div class="mb-8">
+                            <img
+                                src="https://i.imgur.com/cfaO4Qo.jpeg"
+                                alt="Luxury oysters served at a restaurant"
+                                class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                            >
+                            <p class="text-center text-sm text-gray-400 mt-2">
+                                A platter of freshly shucked oysters, glistening and inviting, a true delicacy presented with artistic flair.
+                            </p>
+                        </div>
+                        <p class="mb-4">
+                            The highlight of Aura's evening was undoubtedly the culinary experience: indulging in a platter of freshly shucked oysters. These bivalve mollusks are considered a true delicacy, prized for their unique briny flavor, silky texture, and the distinct taste of the sea. The journey of an oyster from cultivation to a luxury plate is a fascinating one. Oysters are typically farmed in pristine coastal waters, where they filter nutrients from the water. Their flavor profile, known as "merroir" (similar to wine's "terroir"), is heavily influenced by the specific waters they grow in, including salinity, mineral content, and even the type of algae present.
+                        </p>
+                        <p class="mb-4">
+                            Once harvested, preparing oysters for a luxury setting involves meticulous care. They are typically served raw, on the half-shell, presented on a bed of ice to maintain their freshness. A skilled "shucker" carefully opens the oyster without damaging its delicate meat, ensuring it remains plump and intact. Accompaniments often include mignonette (a sauce made with minced shallots, cracked pepper, and vinegar), lemon wedges, and sometimes a touch of cocktail sauce. The act of enjoying oysters is a ritual in itself, a celebration of taste and texture, often savored slowly to appreciate the subtle nuances of each variety. Aura's appreciation for such gourmet delights underscores her holistic approach to luxury, where fine dining is as integral as high fashion. To discover luxury restaurants that often feature exquisite oyster selections, you can search for highly-rated fine dining establishments in major cities, or look for renowned seafood restaurants known for their raw bars. Websites like Michelin Guide, OpenTable, or local luxury dining guides are excellent resources for finding these culinary gems.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Aura: The Art of a Truly Good Night Out
+                        </h2>
+                        <p class="mb-4">
+                            Aura's evening out exemplified the art of living beautifully. From the moment she stepped into the elegant restaurant, every detail contributed to a truly memorable experience. The soft, ambient lighting cast a warm glow, highlighting the sophisticated decor and creating an intimate atmosphere. The subtle hum of conversation and the clinking of glasses provided a refined soundtrack to the evening. The exquisite flavors of the oysters, paired perhaps with a crisp white wine, tantalized her digital palate, creating a symphony of sensations. It wasn't just about the food or the fashion; it was about the feeling of effortless sophistication and the joy of a perfectly curated moment.
+                        </p>
+                        <p class="mb-4">
+                            Beyond the culinary delights and impeccable style, the evening was also defined by the seamless flow of conversation and the vibrant, yet discreet, energy of the luxury establishment. Aura's presence, always a focal point, blended harmoniously with the refined clientele, creating an atmosphere of shared appreciation for the finer things in life. Whether engaging in insightful discussions or simply soaking in the opulent surroundings, every aspect of the night contributed to a profound sense of contentment. Aura radiated confidence and contentment, her serene smile reflecting the success of an evening where every element aligned to create a sense of profound well-being. This was not just a good night, but a truly exceptional one, filled with refined tastes, impeccable style, and an undeniable sense of luxury.
+                        </p>
+
+                        <p class="text-lg font-medium text-gray-800 mt-8 text-center">
+                            Stay connected with The Style Nexus for more captivating insights into AI fashion and luxury living!
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signInAnonymously, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase configuration (replace with your actual project details)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
+            authDomain: "styleaura-c733a.firebaseapp.com",
+            projectId: "styleaura-c733a",
+            storageBucket: "styleaura-c733a.firebasestorage.app",
+            messagingSenderId: "203110694567",
+            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
+            measurementId: "G-KD994GTYGS"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'; // Use provided app ID or default
+
+        // Initialize Firebase variables
+        let app;
+        let auth;
+        let db;
+
+        // Get references to HTML elements
+        const blogPostContent = document.getElementById('blog-post-content');
+        const accessDeniedMessage = document.getElementById('access-denied-message');
+        const loadingMessage = document.getElementById('loading-message');
+        const authButton = document.getElementById('auth-button');
+        const loginPromptButton = document.getElementById('login-prompt-button');
+        const subscribePromptButton = document.getElementById('subscribe-prompt-button');
+        const userIdDisplay = document.getElementById('user-id-display');
+        const subscribeButton = document.getElementById('subscribe-button');
+        const manageSubscriptionButton = document.getElementById('manage-subscription-button');
+
+        // IMPORTANT: Replace this with your actual Stripe product link
+        const STRIPE_PRODUCT_LINK = "https://buy.stripe.com/6oU00jacq6PieXt2hP8bS00";
+        // Assuming your main login page is index.html or a dedicated login.html
+        const LOGIN_PAGE_URL = "index.html"; // Or "login.html" if you have one
+
+
+        // Function to update UI based on auth state and subscription status
+        const updateUI = async (user) => {
+            loadingMessage.classList.add('hidden'); // Hide loading message
+
+            if (user) {
+                console.log("User is signed in:", user.uid);
+                authButton.textContent = 'Logout';
+                userIdDisplay.textContent = `User ID: ${user.uid}`;
+
+                // Check subscription status in Firestore
+                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/subscriptions`, 'premium');
+                console.log(`Checking subscription at Firestore path: artifacts/${appId}/users/${user.uid}/subscriptions/premium`); // Log the path
+                
+                // Use onSnapshot for real-time updates to subscription status
+                onSnapshot(userDocRef, (docSnap) => {
+                    console.log("Firestore docSnap exists:", docSnap.exists());
+                    if (docSnap.exists()) {
+                        console.log("Firestore docSnap data:", docSnap.data());
+                    }
+
+                    if (docSnap.exists() && docSnap.data().active) {
+                        console.log("User is a premium member.");
+                        blogPostContent.classList.remove('hidden');
+                        accessDeniedMessage.classList.add('hidden');
+                        subscribeButton.classList.add('hidden');
+                        manageSubscriptionButton.classList.remove('hidden');
+                    } else {
+                        console.log("User is not a premium member or subscription is inactive.");
+                        blogPostContent.classList.add('hidden');
+                        accessDeniedMessage.classList.remove('hidden');
+                        subscribeButton.classList.remove('hidden');
+                        manageSubscriptionButton.classList.add('hidden');
+                    }
+                }, (error) => {
+                    // This error callback is triggered if there are permission issues or other Firestore errors
+                    console.error("Error listening to subscription status:", error);
+                    let errorMessage = "Error checking subscription status. Please ensure your Firebase Firestore Security Rules allow read access to 'artifacts/{appId}/users/{userId}/subscriptions/premium' for authenticated users.";
+                    if (error.code === 'permission-denied') {
+                        errorMessage = `Error: Missing or insufficient permissions. Please check your Firebase Firestore Security Rules. You need rules like:
+                                        match /artifacts/{appId}/users/{userId}/subscriptions/{document=**} {
+                                            allow read: if request.auth != null && request.auth.uid == userId;
+                                        }`;
+                    }
+                    
+                    blogPostContent.classList.add('hidden');
+                    accessDeniedMessage.classList.remove('hidden');
+                    accessDeniedMessage.innerHTML = `<p class="mb-4">${errorMessage}</p>
+                                                     <button id="login-prompt-button" class="button-primary">Login</button>
+                                                     <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>`;
+                    // Re-attach listeners for the new buttons if they were re-rendered
+                    document.getElementById('login-prompt-button').addEventListener('click', () => {
+                        window.location.href = LOGIN_PAGE_URL; // Redirect to your main login page
+                    });
+                    document.getElementById('subscribe-prompt-button').addEventListener('click', () => {
+                        window.location.href = STRIPE_PRODUCT_LINK; // Redirect to Stripe product link
+                    });
+
+                    subscribeButton.classList.remove('hidden');
+                    manageSubscriptionButton.classList.add('hidden');
+                    userIdDisplay.textContent = `User ID: ${user.uid} (Subscription check failed)`; // Indicate issue
+                });
+
+            } else {
+                console.log("User is signed out.");
+                blogPostContent.classList.add('hidden');
+                accessDeniedMessage.classList.remove('hidden');
+                authButton.textContent = 'Login'; // Changed from "Login Anonymously"
+                userIdDisplay.textContent = '';
+                subscribeButton.classList.remove('hidden'); // Show subscribe if not logged in
+                manageSubscriptionButton.classList.add('hidden');
+            }
+        };
+
+        // Function to initialize Firebase and handle authentication
+        const initFirebaseAndAuth = async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                console.log("Firebase initialized successfully.");
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        updateUI(user);
+                    } else {
+                        // If no user is signed in, just update UI to show access denied and login/subscribe options
+                        updateUI(null);
+                    }
+                });
+
+                // Handle login/logout button click
+                authButton.addEventListener('click', async () => {
+                    if (auth.currentUser) {
+                        // If logged in, log out
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out.");
+                        } catch (error) {
+                            console.error("Error signing out:", error);
+                        }
+                    } else {
+                        // If logged out, redirect to your main login page
+                        window.location.href = LOGIN_PAGE_URL;
+                    }
+                });
+
+                // Handle login prompt button click (redirects to main login page)
+                loginPromptButton.addEventListener('click', () => {
+                    window.location.href = LOGIN_PAGE_URL;
+                });
+
+                // Redirect to Stripe product link when subscribe button is clicked
+                subscribeButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                subscribePromptButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                // Placeholder for manage subscription button - in a real app, this would link to Stripe Customer Portal
+                manageSubscriptionButton.addEventListener('click', () => {
+                    alert('Redirecting to subscription management. (Requires backend integration for Stripe Customer Portal)');
+                    // In a real app, you'd trigger your backend function to create a Stripe Customer Portal Session
+                });
+
+
+            } catch (error) {
+                console.error("Error initializing Firebase or setting up auth listeners:", error);
+                loadingMessage.textContent = 'Error loading content. Please try again later.';
+                updateUI(null);
+            }
+        };
+
+        // Call the initialization function
+        initFirebaseAndAuth();
+    </script>
+</body>
+</html>
