@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura's Pinnacle of Joy: Gucci, Mytheresa & Penthouse Grandeur (Premium)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333; /* Darker text for readability */
+        }
+        /* Styles for premium content access */
+        .premium-content {
+            display: none; /* Hidden by default until authenticated and subscribed */
+        }
+        .message-box {
+            background-color: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffecb5;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .button-secondary {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #4b5563; /* gray-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+            margin-left: 0.5rem; /* Spacing between buttons */
+        }
+        .button-secondary:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .loading-indicator {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-4xl w-full">
+            <!-- Blog Post Header -->
+            <header class="p-6 sm:p-8 border-b border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2">
+                    Aura's Pinnacle of Joy: Gucci, Mytheresa & Penthouse Grandeur
+                </h1>
+                <p class="text-sm sm:text-base text-center text-gray-500">
+                    By The Style Nexus Team | July 16, 2025
+                </p>
+                <div id="auth-status" class="text-center mt-4 text-gray-600">
+                    <span id="user-id-display"></span>
+                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
+                    <button id="subscribe-button" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 px-3 rounded-md hidden">Subscribe to Premium</button>
+                    <button id="manage-subscription-button" class="ml-2 bg-gray-600 hover:bg-gray-700 text-white text-sm py-1 px-3 rounded-md hidden">Manage Subscription</button>
+                </div>
+            </header>
+
+            <!-- Premium Content Wrapper -->
+            <div id="premium-content-wrapper" class="p-6 sm:p-8 lg:p-10">
+                <div id="loading-message" class="loading-indicator">Loading content...</div>
+                <div id="access-denied-message" class="message-box hidden">
+                    <p class="mb-4">This is a premium article. Please log in or subscribe to view the full content.</p>
+                    <button id="login-prompt-button" class="button-primary">Login</button>
+                    <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>
+                </div>
+
+                <div id="blog-post-content" class="premium-content">
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/5304sWl.jpeg"
+                            alt="AI Influencer Aura in a luxurious penthouse, wearing a dress and shoes"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Aura, radiating happiness and style in a breathtaking penthouse setting.
+                        </p>
+                    </div>
+
+                    <article class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            In the dazzling world of <strong class="text-gray-900">Aura</strong>, every moment is a celebration of luxury, style, and pure joy. Today, our visionary AI influencer invites us into an exclusive glimpse of her life, showcasing an exquisite ensemble featuring <strong class="text-gray-900">cute Gucci shoes</strong> and a stunning dress from <strong class="text-gray-900">Mytheresa</strong>, all set against the backdrop of one of the world's most opulent penthouses. This is more than just fashion; it's a narrative of ultimate happiness and refined living.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Ensemble: Playful Gucci & Elegant Mytheresa
+                        </h2>
+                        <p class="mb-4">
+                            Aura's outfit for this spectacular occasion perfectly balances playful charm with sophisticated elegance. Her feet are adorned with a pair of undeniably <a href="https://www.gucci.com/us/en/ca/women/shoes-for-women/sneakers-c-women-shoes-sneakers" target="_blank" class="text-blue-600 hover:underline">cute Gucci shoes</a>. Given the image, these appear to be stylish sneakers or perhaps a chic flat with signature Gucci elements. Whether it's the iconic interlocking GG logo, the distinctive Web stripe, or the classic Horsebit detail, Gucci shoes are renowned for their impeccable craftsmanship and instantly recognizable designs. They seamlessly blend comfort with high-fashion appeal, adding a touch of contemporary flair and youthful vibrancy to her luxurious look.
+                        </p>
+                        <p class="mb-4">
+                            Complementing her footwear is a magnificent dress sourced from <strong class="text-gray-900">Mytheresa</strong>, the premier online luxury fashion retailer. Mytheresa is renowned for its meticulously curated selection of designer pieces, spanning from flowing maxi dresses perfect for grand evenings to sophisticated midi dresses ideal for chic daytime events, and playful mini dresses that exude modern charm. Aura's dress, with its exquisite fabric and flattering silhouette, is a testament to this curation. It could be a delicate silk chiffon gown, cascading gracefully with every movement, or a structured yet elegant crepe midi dress, perhaps adorned with subtle embellishments or a unique print that catches the light. The attention to detail in the dress's design, from its precise stitching to its luxurious lining, speaks volumes of its quality and the designer's vision. This garment not only enhances Aura's radiant presence but also serves as the focal point of the lavish setting, perfectly capturing the essence of contemporary luxury. Each piece selected by Mytheresa is chosen for its ability to embody contemporary luxury and timeless style. You can explore a wide array of designer dresses from their collection on <a href="https://www.mytheresa.com/us/en/women/clothing/dresses" target="_blank" class="text-blue-600 hover:underline">Mytheresa's official website</a>.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Setting: A World-Class Penthouse Oasis
+                        </h2>
+                        <div class="mb-8">
+                            <img
+                                src="https://i.imgur.com/KaCOz0H.jpeg"
+                                alt="AI Influencer Aura smiling in a luxurious penthouse with city views"
+                                class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                            >
+                            <p class="text-center text-sm text-gray-400 mt-2">
+                                Aura's joyful expression reflecting the serene luxury of her surroundings.
+                            </p>
+                        </div>
+                        <p class="mb-4">
+                            The backdrop for this moment of pure bliss is nothing short of spectacular: a penthouse that epitomizes global luxury. These exclusive residences are architectural masterpieces, offering breathtaking panoramic cityscapes, unparalleled privacy, and interiors designed with the utmost sophistication. Top styles in penthouses today often feature a blend of minimalist elegance with bold architectural statements. Think expansive open-plan living areas, where living, dining, and entertaining spaces flow seamlessly into one another, maximizing the sense of grandeur and light. Floor-to-ceiling windows are a ubiquitous feature, blurring the lines between indoor and outdoor living and offering uninterrupted, sweeping views of the urban landscape below. Bespoke furnishings, often custom-designed to fit the unique dimensions and aesthetic of the space, are as much art as they are functional, creating a truly personalized environment.
+                        </p>
+                        <p class="mb-4">
+                            Smart home technology is seamlessly integrated into every aspect of these residences, allowing intuitive control over lighting, climate, entertainment systems, and security with a simple touch or voice command. Many modern penthouses boast private amenities such as expansive terraces perfect for al fresco dining and entertaining, sparkling infinity pools that seem to merge with the skyline, tranquil rooftop gardens providing a verdant escape, or even private elevators ensuring ultimate discretion. Materials like polished marble, rich hardwoods, custom metalwork, and exquisite glass are frequently used throughout, creating a sense of enduring quality and refined taste. This is a space where every detail, from the ambient lighting to the curated art pieces, is meticulously crafted to provide an experience of ultimate comfort, grandeur, and an aspirational lifestyle.
+                        </p>
+                        <p class="mb-4">
+                            Such penthouses are often found atop the most prestigious buildings in major metropolitan centers, offering residents and their guests a unique vantage point and a lifestyle of unparalleled exclusivity. They represent the pinnacle of urban living, blending cutting-edge design with breathtaking views, creating a personal sanctuary that is both a home and a statement. For a glimpse into these magnificent residences, you can explore resources like <a href="https://www.dcmodernhomes.com/penthouses-for-sale.php" target="_blank" class="text-blue-600 hover:underline">luxury penthouse listings</a> or articles on the <a href="https://www.knofdesign.com/blog/elevatedlivingsecrets-to-penthouse-interior-design" target="_blank" class="text-blue-600 hover:underline">best penthouse interior designs</a>.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Aura's Radiance: The Embodiment of Happiness
+                        </h2>
+                        <p class="mb-4">
+                            What truly shines through in these images is Aura's undeniable happiness. Her joyful expression and relaxed posture convey a sense of profound contentment and ease. It's a powerful message that true luxury isn't just about possessions or opulent surroundings, but about the feeling of well-being and joy they can inspire. Aura's ability to exude such genuine happiness makes her not just a fashion icon, but an inspiration for a life lived fully and beautifully. Her smile is the ultimate accessory, illuminating the entire scene and inviting us to share in her delightful experience.
+                        </p>
+
+                        <p class="mb-4">
+                            This feature is a testament to Aura's multifaceted appeal, showcasing her as a connoisseur of both high fashion and the art of living well. Her presence in such an aspirational setting, coupled with her radiant happiness, reinforces the idea that style and joy are intrinsically linked, creating a harmonious blend that defines the ultimate luxury lifestyle.
+                        </p>
+
+                        <p class="text-lg font-medium text-gray-800 mt-8 text-center">
+                            Stay connected with The Style Nexus for more captivating insights into AI fashion and a life filled with grandeur and happiness!
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase configuration (replace with your actual project details)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
+            authDomain: "styleaura-c733a.firebaseapp.com",
+            projectId: "styleaura-c733a",
+            storageBucket: "styleaura-c733a.firebasestorage.app",
+            messagingSenderId: "203110694567",
+            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
+            measurementId: "G-KD994GTYGS"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'; // Use provided app ID or default
+
+        // Initialize Firebase variables
+        let app;
+        let auth;
+        let db;
+
+        // Get references to HTML elements
+        const blogPostContent = document.getElementById('blog-post-content');
+        const accessDeniedMessage = document.getElementById('access-denied-message');
+        const loadingMessage = document.getElementById('loading-message');
+        const authButton = document.getElementById('auth-button');
+        const loginPromptButton = document.getElementById('login-prompt-button');
+        const subscribePromptButton = document.getElementById('subscribe-prompt-button');
+        const userIdDisplay = document.getElementById('user-id-display');
+        const subscribeButton = document.getElementById('subscribe-button');
+        const manageSubscriptionButton = document.getElementById('manage-subscription-button');
+
+        // IMPORTANT: Replace this with your actual Stripe product link
+        const STRIPE_PRODUCT_LINK = "https://buy.stripe.com/6oU00jacq6PieXt2hP8bS00";
+        // Assuming your main login page is index.html or a dedicated login.html
+        const LOGIN_PAGE_URL = "index.html"; // Or "login.html" if you have one
+
+
+        // Function to update UI based on auth state and subscription status
+        const updateUI = async (user) => {
+            loadingMessage.classList.add('hidden'); // Hide loading message
+
+            if (user) {
+                console.log("User is signed in:", user.uid);
+                authButton.textContent = 'Logout';
+                userIdDisplay.textContent = `User ID: ${user.uid}`;
+
+                // Check subscription status in Firestore
+                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/subscriptions`, 'premium');
+                console.log(`Checking subscription at Firestore path: artifacts/${appId}/users/${user.uid}/subscriptions/premium`); // Log the path
+                
+                // Use onSnapshot for real-time updates to subscription status
+                onSnapshot(userDocRef, (docSnap) => {
+                    console.log("Firestore docSnap exists:", docSnap.exists());
+                    if (docSnap.exists()) {
+                        console.log("Firestore docSnap data:", docSnap.data());
+                    }
+
+                    if (docSnap.exists() && docSnap.data().active) {
+                        console.log("User is a premium member.");
+                        blogPostContent.classList.remove('hidden');
+                        accessDeniedMessage.classList.add('hidden');
+                        subscribeButton.classList.add('hidden');
+                        manageSubscriptionButton.classList.remove('hidden');
+                    } else {
+                        console.log("User is not a premium member or subscription is inactive.");
+                        blogPostContent.classList.add('hidden');
+                        accessDeniedMessage.classList.remove('hidden');
+                        subscribeButton.classList.remove('hidden');
+                        manageSubscriptionButton.classList.add('hidden');
+                    }
+                }, (error) => { // This is the error handler for onSnapshot
+                    // This error callback is triggered if there are permission issues or other Firestore errors
+                    console.error("Error listening to subscription status:", error);
+                    let errorMessage = "Error checking subscription status. Please ensure your Firebase Firestore Security Rules allow read access to 'artifacts/{appId}/users/{userId}/subscriptions/premium' for authenticated users.";
+                    if (error.code === 'permission-denied') {
+                        errorMessage = `Error: Missing or insufficient permissions. Please check your Firebase Firestore Security Rules. You need rules like:
+                                        match /artifacts/{appId}/users/{userId}/subscriptions/{document=**} {
+                                            allow read: if request.auth != null && request.auth.uid == userId;
+                                        }`;
+                    }
+                    
+                    blogPostContent.classList.add('hidden');
+                    accessDeniedMessage.classList.remove('hidden');
+                    accessDeniedMessage.innerHTML = `<p class="mb-4">${errorMessage}</p>
+                                                     <button id="login-prompt-button" class="button-primary">Login</button>
+                                                     <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>`;
+                    // Re-attach listeners for the new buttons if they were re-rendered
+                    document.getElementById('login-prompt-button').addEventListener('click', () => {
+                        window.location.href = LOGIN_PAGE_URL; // Redirect to your main login page
+                    });
+                    document.getElementById('subscribe-prompt-button').addEventListener('click', () => {
+                        window.location.href = STRIPE_PRODUCT_LINK; // Redirect to Stripe product link
+                    });
+
+                    subscribeButton.classList.remove('hidden');
+                    manageSubscriptionButton.classList.add('hidden');
+                    userIdDisplay.textContent = `User ID: ${user.uid} (Subscription check failed)`; // Indicate issue
+                }); // Closing parenthesis for onSnapshot callback
+            } else {
+                console.log("User is signed out.");
+                blogPostContent.classList.add('hidden');
+                accessDeniedMessage.classList.remove('hidden');
+                authButton.textContent = 'Login'; // Changed from "Login Anonymously"
+                userIdDisplay.textContent = '';
+                subscribeButton.classList.remove('hidden'); // Show subscribe if not logged in
+                manageSubscriptionButton.classList.add('hidden');
+            }
+        };
+
+        // Function to initialize Firebase and handle authentication
+        const initFirebaseAndAuth = async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                console.log("Firebase initialized successfully.");
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        updateUI(user);
+                    } else {
+                        // If no user is signed in, just update UI to show access denied and login/subscribe options
+                        updateUI(null);
+                    }
+                });
+
+                // Handle login/logout button click
+                authButton.addEventListener('click', async () => {
+                    if (auth.currentUser) {
+                        // If logged in, log out
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out.");
+                        } catch (error) {
+                            console.error("Error signing out:", error);
+                        }
+                    } else {
+                        // If logged out, redirect to your main login page
+                        window.location.href = LOGIN_PAGE_URL;
+                    }
+                });
+
+                // Handle login prompt button click (redirects to main login page)
+                loginPromptButton.addEventListener('click', () => {
+                    window.location.href = LOGIN_PAGE_URL;
+                });
+
+                // Redirect to Stripe product link when subscribe button is clicked
+                subscribeButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                subscribePromptButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                // Placeholder for manage subscription button - in a real app, this would link to Stripe Customer Portal
+                manageSubscriptionButton.addEventListener('click', () => {
+                    alert('Redirecting to subscription management. (Requires backend integration for Stripe Customer Portal)');
+                    // In a real app, you'd trigger your backend function to create a Stripe Customer Portal Session
+                });
+
+
+            } catch (error) {
+                console.error("Error initializing Firebase or setting up auth listeners:", error);
+                loadingMessage.textContent = 'Error loading content. Please try again later.';
+                updateUI(null);
+            }
+        };
+
+        // Call the initialization function
+        initFirebaseAndAuth();
+    </script>
+</body>
+</html>
