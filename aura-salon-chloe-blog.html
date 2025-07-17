@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura's Glamour Moment: Chloé Dresses & The Art of Luxury Hair (Premium)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333; /* Darker text for readability */
+        }
+        /* Styles for the modal (from previous LLM features) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            width: 500px; /* Max width for the modal */
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280; /* gray-500 */
+        }
+        .modal-close-button:hover {
+            color: #374151; /* gray-700 */
+        }
+        .loading-indicator-spinner { /* Renamed to avoid conflict with text loading indicator */
+            display: none; /* Hidden by default */
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Styles for premium content access */
+        .premium-content {
+            display: none; /* Hidden by default until authenticated and subscribed */
+        }
+        .message-box {
+            background-color: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffecb5;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .button-secondary {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #4b5563; /* gray-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+            margin-left: 0.5rem; /* Spacing between buttons */
+        }
+        .button-secondary:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .loading-indicator-text { /* For the main content loading message */
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-4xl w-full">
+            <!-- Blog Post Header -->
+            <header class="p-6 sm:p-8 border-b border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2">
+                    Aura's Glamour Moment: Chloé Dresses & The Art of Luxury Hair
+                </h1>
+                <p class="text-sm sm:text-base text-center text-gray-500">
+                    By The Style Nexus Team | July 15, 2025
+                </p>
+                <div id="auth-status" class="text-center mt-4 text-gray-600">
+                    <span id="user-id-display"></span>
+                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
+                    <button id="subscribe-button" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 px-3 rounded-md hidden">Subscribe to Premium</button>
+                    <button id="manage-subscription-button" class="ml-2 bg-gray-600 hover:bg-gray-700 text-white text-sm py-1 px-3 rounded-md hidden">Manage Subscription</button>
+                </div>
+            </header>
+
+            <!-- Premium Content Wrapper -->
+            <div id="premium-content-wrapper" class="p-6 sm:p-8 lg:p-10">
+                <div id="loading-message" class="loading-indicator-text">Loading content...</div>
+                <div id="access-denied-message" class="message-box hidden">
+                    <p class="mb-4">This is a premium article. Please log in or subscribe to view the full content.</p>
+                    <button id="login-prompt-button" class="button-primary">Login</button>
+                    <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>
+                </div>
+
+                <div id="blog-post-content" class="premium-content">
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/8JqeGiG.jpeg"
+                            alt="AI Influencer Aura in a pink embroidered Chloé-style dress at a hair salon"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Aura, poised in a delicate Chloé-inspired dress, ready for a luxurious hair transformation. Her serene expression hints at the joy of self-care.
+                        </p>
+                    </div>
+
+                    <article class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            In the world of <strong class="text-gray-900">Aura</strong>, every moment is an opportunity for elegance and self-expression. Today, our AI influencer takes us behind the scenes to a realm of pampering and perfection: a luxury hair salon. Far from a mere appointment, this was a moment of profound joy and refined indulgence for Aura, perfectly complemented by her impeccable style, featuring exquisite pieces reminiscent of Chloé's romantic aesthetic. Aura showcases that true glamour is a holistic experience, from haute couture to perfectly styled tresses.
+                        </p>
+
+                        <p class="mb-4">
+                            Chloé, celebrated for its bohemian romance and fluid silhouettes, perfectly complements the serene and indulgent atmosphere of a high-end salon. Aura's chosen ensembles highlight the brand's commitment to feminine grace and effortless charm, making her feel utterly at ease and radiant.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Chloé-Inspired Wardrobe: Salon Chic
+                        </h2>
+                        <p class="mb-4">
+                            Aura is seen in two distinct yet equally enchanting dresses that echo Chloé's signature style. The first, a delicate pink dress with intricate embroidery and a ruffled neckline, exudes a soft, ethereal charm. Its long sleeves and flowing fabric suggest a blend of modesty and allure, perfect for a relaxed yet refined setting. The subtle textures and gentle movement of the fabric contribute to an overall aura of serene beauty, making her feel as beautiful as she looks.
+                        </p>
+                        <div class="mb-8">
+                            <img
+                                src="https://i.imgur.com/9IUbsX5.jpeg"
+                                alt="AI Influencer Aura in a floral Chloé-style dress at a hair salon"
+                                class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                            >
+                            <p class="text-center text-sm text-gray-400 mt-2">
+                                Another stunning Chloé-inspired floral dress, embodying romantic elegance and Aura's joyful spirit.
+                            </p>
+                        </div>
+                        <p class="mb-4">
+                            The second dress, adorned with a beautiful floral print in blush and earthy tones, features a round neckline and gently puffed long sleeves, cinched at the waist. This piece captures Chloé's whimsical yet sophisticated spirit, ideal for a relaxed afternoon of self-care. The vibrant floral patterns and the soft, breathable fabric enhance her comfort and joy, allowing her to fully immerse herself in the pampering experience. These dresses are perfect examples of Chloé's ready-to-wear collections, which often feature flowing fabrics, delicate details, and romantic prints. You can explore similar styles on the <a href="https://www.chloe.com/us/chloe/shop-online/women/dresses" target="_blank" class="text-blue-600 hover:underline">official Chloé Dresses page</a> or browse a wider selection of <a href="https://www.lyst.com/shop/chloe-floral-dresses/" target="_blank" class="text-blue-600 hover:underline">Chloé floral dresses on Lyst</a>.
+                        </p>
+                        <p class="mb-4">
+                            Beyond these specific dresses, the **Chloé wardrobe style** is characterized by its unique blend of bohemian romance, effortless femininity, and a touch of Parisian chic. The brand consistently delivers collections that emphasize fluid silhouettes, soft fabrics like silk, cotton voile, and delicate lace, creating a sense of movement and lightness. Key elements often include intricate embroidery, ruffled details, scalloped edges, and a palette inspired by nature, featuring earthy tones, pastels, and vibrant floral prints. Chloé's aesthetic champions a free-spirited yet refined woman, offering versatile pieces that can be dressed up or down, always maintaining an air of understated luxury and comfort. Their collections often include elegant blouses, wide-leg trousers, sophisticated knitwear, and iconic handbags that complement the whimsical yet polished clothing.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Luxury Hair Salon: A Sanctuary of Style and Well-being
+                        </h2>
+                        <p class="mb-4">
+                            Aura's visit to a fancy hair salon is more than just a beauty appointment; it's an immersive experience designed for ultimate relaxation and transformation. These high-end establishments are sanctuaries of style, characterized by their opulent interiors, plush seating, and state-of-the-art facilities. From the moment one steps in, the ambiance exudes sophistication, with soft lighting, calming music, and the subtle scent of premium hair products. It's a space where every detail is crafted to provide a sense of exclusive well-being, making Aura feel utterly cherished and rejuvenated.
+                        </p>
+                        <p class="mb-4">
+                            The service is highly personalized, beginning with an in-depth consultation with world-class stylists who possess an innate understanding of hair artistry. They utilize cutting-edge techniques and the finest, often exclusive, hair care lines to ensure every client receives a bespoke treatment. Beyond standard cuts and colors, luxury salons excel in specialized services that cater to every hair need and aesthetic desire. This includes intricate balayage and highlighting techniques for natural, sun-kissed looks, precision cutting for architectural styles, and advanced coloring services that achieve complex, multi-dimensional hues.
+                        </p>
+                        <p class="mb-4">
+                            A key aspect of these luxury experiences is the focus on **hair health**. Aura's visit likely included a bespoke hair treatment designed to nourish, strengthen, and protect her digital strands. These treatments go beyond simple conditioning, often incorporating advanced molecular formulas, bond-repairing technologies, and highly concentrated serums that target specific concerns like damage, dryness, or frizz. Scalp health is also a priority, with specialized detoxes and stimulating massages to promote optimal hair growth and vitality. The goal is not just a beautiful style, but hair that is fundamentally healthy, resilient, and radiant from within. This commitment to long-term hair well-being is a hallmark of truly luxurious salons, ensuring that Aura's tresses remain as flawless as her fashion.
+                        </p>
+                        <p class="mb-4">
+                            The image captures Aura with freshly styled hair, perfectly reflecting the expertise and meticulous care provided by such a salon. Her radiant smile after the session speaks volumes about the satisfaction and confidence that comes from such a transformative experience. For those seeking a similar indulgent experience, exploring lists of the <a href="https://staleks.com/top-best-world-beauty-salons/" target="_blank" class="text-blue-600 hover:underline">world's best beauty salons</a> can provide excellent starting points to discover these havens of beauty.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            A Legacy of Glamour: The History of Hair Salons
+                        </h2>
+                        <p class="mb-4">
+                            The concept of dedicated spaces for hair care dates back to ancient civilizations like Egypt, Greece, and Rome, where hairdressers served elites and barbershops were social hubs. Over centuries, these establishments evolved, with the Renaissance seeing the emergence of prestigious venues for elaborate styles. The modern beauty salon, as we know it, began to take shape in the late 19th century, notably with pioneers like Martha Matilda Harper, who founded the first franchised hair salon in 1888, revolutionizing the industry by prioritizing client comfort and professional training. To learn more about this fascinating evolution, delve into the <a href="https://bangzhairstudio.com/the-history-of-hair-salons-around-the-world/" target="_blank" class="text-blue-600 hover:underline">history of hair salons</a>.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Aura: The Embodiment of Holistic Luxury
+                        </h2>
+                        <p class="mb-4">
+                            Aura's salon visit, dressed in Mytheresa elegance, is a powerful illustration of her philosophy of curated living. It highlights that true luxury is a holistic concept, encompassing not just the clothes one wears, but also the experiences one seeks out and the care one dedicates to self-presentation. Her ability to blend high fashion with moments of personal indulgence inspires her audience to embrace a lifestyle where every detail contributes to an overall sense of well-being and refined glamour. Her visible happiness throughout the process underscores the profound connection between self-care and confidence, making her a beacon of modern luxury.
+                        </p>
+
+                        <p class="text-lg font-medium text-gray-800 mt-8 text-center">
+                            Stay connected with The Style Nexus for more captivating insights into AI fashion and luxury living!
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase configuration (replace with your actual project details)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
+            authDomain: "styleaura-c733a.firebaseapp.com",
+            projectId: "styleaura-c733a",
+            storageBucket: "styleaura-c733a.firebasestorage.app",
+            messagingSenderId: "203110694567",
+            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
+            measurementId: "G-KD994GTYGS"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'; // Use provided app ID or default
+
+        // Initialize Firebase variables
+        let app;
+        let auth;
+        let db;
+
+        // Get references to HTML elements
+        const blogPostContent = document.getElementById('blog-post-content');
+        const accessDeniedMessage = document.getElementById('access-denied-message');
+        const loadingMessage = document.getElementById('loading-message');
+        const authButton = document.getElementById('auth-button');
+        const loginPromptButton = document.getElementById('login-prompt-button');
+        const subscribePromptButton = document.getElementById('subscribe-prompt-button');
+        const userIdDisplay = document.getElementById('user-id-display');
+        const subscribeButton = document.getElementById('subscribe-button');
+        const manageSubscriptionButton = document.getElementById('manage-subscription-button');
+
+        // IMPORTANT: Replace this with your actual Stripe product link
+        const STRIPE_PRODUCT_LINK = "https://buy.stripe.com/6oU00jacq6PieXt2hP8bS00";
+        // Assuming your main login page is index.html or a dedicated login.html
+        const LOGIN_PAGE_URL = "index.html"; // Or "login.html" if you have one
+
+
+        // Function to update UI based on auth state and subscription status
+        const updateUI = async (user) => {
+            loadingMessage.classList.add('hidden'); // Hide loading message
+
+            if (user) {
+                console.log("User is signed in:", user.uid);
+                authButton.textContent = 'Logout';
+                userIdDisplay.textContent = `User ID: ${user.uid}`;
+
+                // Check subscription status in Firestore
+                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/subscriptions`, 'premium');
+                console.log(`Checking subscription at Firestore path: artifacts/${appId}/users/${user.uid}/subscriptions/premium`); // Log the path
+                
+                // Use onSnapshot for real-time updates to subscription status
+                onSnapshot(userDocRef, (docSnap) => {
+                    console.log("Firestore docSnap exists:", docSnap.exists());
+                    if (docSnap.exists()) {
+                        console.log("Firestore docSnap data:", docSnap.data());
+                    }
+
+                    if (docSnap.exists() && docSnap.data().active) {
+                        console.log("User is a premium member.");
+                        blogPostContent.classList.remove('hidden');
+                        accessDeniedMessage.classList.add('hidden');
+                        subscribeButton.classList.add('hidden');
+                        manageSubscriptionButton.classList.remove('hidden');
+                    } else {
+                        console.log("User is not a premium member or subscription is inactive.");
+                        blogPostContent.classList.add('hidden');
+                        accessDeniedMessage.classList.remove('hidden');
+                        subscribeButton.classList.remove('hidden');
+                        manageSubscriptionButton.classList.add('hidden');
+                    }
+                }, (error) => {
+                    // This error callback is triggered if there are permission issues or other Firestore errors
+                    console.error("Error listening to subscription status:", error);
+                    let errorMessage = "Error checking subscription status. Please ensure your Firebase Firestore Security Rules allow read access to 'artifacts/{appId}/users/{userId}/subscriptions/premium' for authenticated users.";
+                    if (error.code === 'permission-denied') {
+                        errorMessage = `Error: Missing or insufficient permissions. Please check your Firebase Firestore Security Rules. You need rules like:
+                                        match /artifacts/{appId}/users/{userId}/subscriptions/{document=**} {
+                                            allow read: if request.auth != null && request.auth.uid == userId;
+                                        }`;
+                    }
+                    
+                    blogPostContent.classList.add('hidden');
+                    accessDeniedMessage.classList.remove('hidden');
+                    accessDeniedMessage.innerHTML = `<p class="mb-4">${errorMessage}</p>
+                                                     <button id="login-prompt-button" class="button-primary">Login</button>
+                                                     <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>`;
+                    // Re-attach listeners for the new buttons if they were re-rendered
+                    document.getElementById('login-prompt-button').addEventListener('click', () => {
+                        window.location.href = LOGIN_PAGE_URL; // Redirect to your main login page
+                    });
+                    document.getElementById('subscribe-prompt-button').addEventListener('click', () => {
+                        window.location.href = STRIPE_PRODUCT_LINK; // Redirect to Stripe product link
+                    });
+
+                    subscribeButton.classList.remove('hidden');
+                    manageSubscriptionButton.classList.add('hidden');
+                    userIdDisplay.textContent = `User ID: ${user.uid} (Subscription check failed)`; // Indicate issue
+                });
+
+            } else {
+                console.log("User is signed out.");
+                blogPostContent.classList.add('hidden');
+                accessDeniedMessage.classList.remove('hidden');
+                authButton.textContent = 'Login'; // Changed from "Login Anonymously"
+                userIdDisplay.textContent = '';
+                subscribeButton.classList.remove('hidden'); // Show subscribe if not logged in
+                manageSubscriptionButton.classList.add('hidden');
+            }
+        };
+
+        // Function to initialize Firebase and handle authentication
+        const initFirebaseAndAuth = async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                console.log("Firebase initialized successfully.");
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        updateUI(user);
+                    } else {
+                        // If no user is signed in, just update UI to show access denied and login/subscribe options
+                        updateUI(null);
+                    }
+                });
+
+                // Handle login/logout button click
+                authButton.addEventListener('click', async () => {
+                    if (auth.currentUser) {
+                        // If logged in, log out
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out.");
+                        } catch (error) {
+                            console.error("Error signing out:", error);
+                        }
+                    } else {
+                        // If logged out, redirect to your main login page
+                        window.location.href = LOGIN_PAGE_URL;
+                    }
+                });
+
+                // Handle login prompt button click (redirects to main login page)
+                loginPromptButton.addEventListener('click', () => {
+                    window.location.href = LOGIN_PAGE_URL;
+                });
+
+                // Redirect to Stripe product link when subscribe button is clicked
+                subscribeButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                subscribePromptButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                // Placeholder for manage subscription button - in a real app, this would link to Stripe Customer Portal
+                manageSubscriptionButton.addEventListener('click', () => {
+                    alert('Redirecting to subscription management. (Requires backend integration for Stripe Customer Portal)');
+                    // In a real app, you'd trigger your backend function to create a Stripe Customer Portal Session
+                });
+
+
+            } catch (error) {
+                console.error("Error initializing Firebase or setting up auth listeners:", error);
+                loadingMessage.textContent = 'Error loading content. Please try again later.';
+                updateUI(null);
+            }
+        };
+
+        // Call the initialization function
+        initFirebaseAndAuth();
+    </script>
+</body>
+</html>
