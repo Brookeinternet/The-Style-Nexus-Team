@@ -127,6 +127,9 @@
         .user-info button:hover {
             background-color: #dc2626; /* red-600 */
         }
+        .post-card.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -154,7 +157,7 @@
                 </p>
                 <div class="flex space-x-6 mt-4">
                     <div class="text-center">
-                        <p class="font-bold text-lg">5</p>
+                        <p class="font-bold text-lg" id="total-posts-count">9</p>
                         <p class="text-sm text-gray-500">Posts</p>
                     </div>
                     <div class="text-center">
@@ -197,9 +200,9 @@
                         <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6 text-center">
                             Latest Posts
                         </h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="posts-grid">
                             <!-- Post 1: Chanel Cute Girl -->
-                            <a href="chanel-cute-girl-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <a href="chanel-cute-girl-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
                                     src="https://i.imgur.com/gRDm1Bc.jpeg"
                                     alt="Aura in a cute Chanel outfit"
@@ -212,7 +215,7 @@
                             </a>
 
                             <!-- Post 2: Tomboyish Dior -->
-                            <a href="dior-tomboy-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <a href="dior-tomboy-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
                                     src="https://i.imgur.com/d9ZF1lO.jpeg"
                                     alt="AI Influencer Aura in a tomboyish Dior outfit"
@@ -225,7 +228,7 @@
                             </a>
 
                             <!-- Post 3: Louis Vuitton Onthego MM -->
-                            <a href="fashion-blog-post" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <a href="fashion-blog-post" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
                                     src="https://i.imgur.com/tiRhmko.jpeg"
                                     alt="Aura with Louis Vuitton Onthego MM bag"
@@ -238,7 +241,7 @@
                             </a>
 
                             <!-- Post 4: Sweet Indulgence: Aura's Luxury Cheesecake Experience -->
-                            <a href="cheesecake-luxury-blog" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <a href="cheesecake-luxury-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
                                     src="https://i.imgur.com/MOKAZYx.jpeg"
                                     alt="AI Influencer Aura enjoying cheesecake at a luxury restaurant"
@@ -250,8 +253,8 @@
                                 </div>
                             </a>
 
-                            <!-- New Post: Aura's Pinnacle of Joy: Gucci, Mytheresa & Penthouse Grandeur -->
-                            <a href="aura-gucci-mytheresa-penthouse" class="block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                            <!-- Post 5: Aura's Pinnacle of Joy: Gucci, Mytheresa & Penthouse Grandeur -->
+                            <a href="aura-gucci-mytheresa-penthouse" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
                                     src="https://i.imgur.com/5304sWl.jpeg"
                                     alt="AI Influencer Aura in a luxurious penthouse"
@@ -262,6 +265,60 @@
                                     <p class="text-white text-center font-semibold text-lg p-4">Pinnacle of Joy: Gucci & Penthouse</p>
                                 </div>
                             </a>
+
+                            <!-- Post 6: Aura's Refined Retreat: Dior, Vogue & Luxury Hair -->
+                            <a href="aura-dior-vogue-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/vbgaJAj.jpeg"
+                                    alt="AI Influencer Aura in Dior reading Vogue"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Dior+Vogue';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Refined Retreat: Dior & Vogue</p>
+                                </div>
+                            </a>
+
+                            <!-- New Placeholder Post 7 -->
+                            <a href="#" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hidden">
+                                <img
+                                    src="https://placehold.co/400x400/a0a0a0/ffffff?text=New+Post+7"
+                                    alt="Placeholder Image for New Post 7"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Future Trends: AI in Fashion</p>
+                                </div>
+                            </a>
+
+                            <!-- New Placeholder Post 8 -->
+                            <a href="#" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hidden">
+                                <img
+                                    src="https://placehold.co/400x400/808080/ffffff?text=New+Post+8"
+                                    alt="Placeholder Image for New Post 8"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Sustainable Luxury: Aura's Picks</p>
+                                </div>
+                            </a>
+
+                            <!-- New Placeholder Post 9 -->
+                            <a href="#" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hidden">
+                                <img
+                                    src="https://placehold.co/400x400/606060/ffffff?text=New+Post+9"
+                                    alt="Placeholder Image for New Post 9"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Behind the Scenes: Digital Creation</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="text-center mt-8">
+                            <button id="load-more-posts" class="bg-gray-700 text-white py-2 px-6 rounded-md hover:bg-gray-800 transition duration-150 ease-in-out shadow-md">
+                                Load More Posts
+                            </button>
                         </div>
                     </section>
 
@@ -349,6 +406,7 @@
                             <li><a href="chanel-cute-girl-blog" class="text-gray-700 hover:text-blue-600">Chic Charm: Aura's Adorable Chanel Ensemble</a></li>
                             <li><a href="cheesecake-luxury-blog" class="text-gray-700 hover:text-blue-600">Sweet Indulgence: Aura's Luxury Cheesecake Experience</a></li>
                             <li><a href="aura-gucci-mytheresa-penthouse" class="text-gray-700 hover:text-blue-600">Aura's Pinnacle of Joy: Gucci, Mytheresa & Penthouse Grandeur</a></li>
+                            <li><a href="aura-dior-vogue-blog" class="text-gray-700 hover:text-blue-600">Aura's Refined Retreat: Dior, Vogue & Luxury Hair</a></li>
                         </ul>
                     </div>
                 </aside>
@@ -557,6 +615,42 @@
             authTitle.textContent = 'Sign In';
             toggleAuthMode.textContent = 'Don\'t have an account? Sign Up';
         }
+
+        // --- Load More Posts Logic ---
+        const postsGrid = document.getElementById('posts-grid');
+        const postCards = Array.from(postsGrid.getElementsByClassName('post-card'));
+        const loadMoreButton = document.getElementById('load-more-posts');
+        const initialPostsToShow = 6; // Number of posts to show initially
+        const postsPerLoad = 3;      // Number of posts to load each time
+
+        let currentlyVisiblePosts = initialPostsToShow;
+
+        // Function to show/hide posts
+        function updatePostVisibility() {
+            postCards.forEach((card, index) => {
+                if (index < currentlyVisiblePosts) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Hide load more button if all posts are visible
+            if (currentlyVisiblePosts >= postCards.length) {
+                loadMoreButton.classList.add('hidden');
+            } else {
+                loadMoreButton.classList.remove('hidden');
+            }
+        }
+
+        // Event listener for Load More button
+        loadMoreButton.addEventListener('click', () => {
+            currentlyVisiblePosts += postsPerLoad;
+            updatePostVisibility();
+        });
+
+        // Initial call to set visibility on page load
+        updatePostVisibility();
     </script>
 </body>
 </html>
