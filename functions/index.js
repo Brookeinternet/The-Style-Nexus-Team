@@ -1,32 +1,24 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+// Converted from Firebase Functions to Express for Render
 
-// Make sure 'onRequest' is imported
-const {onRequest} = require("firebase-functions/v2/https");
-// Define and export an HTTP function
-exports.myApiEndpoint = onRequest((request, response) => {
-  response.send("Hello from your API!");
+import express from "express";
+
+const app = express();
+
+// Equivalent to exports.myApiEndpoint = onRequest(...)
+app.get("/myApiEndpoint", (req, res) => {
+  res.send("Hello from your API!");
 });
 
-const {logger} = require("firebase-functions");
-
-exports.anotherFunction = onRequest((request, response) => {
-  logger.info("Function 'anotherFunction' was called!"); // Using the logger
-  logger.warn("This is a warning message."); // Another example
-  response.send("Function executed!");
+// Equivalent to exports.anotherFunction = onRequest(...)
+app.get("/anotherFunction", (req, res) => {
+  console.info("Function 'anotherFunction' was called!"); // Use console for logging
+  console.warn("This is a warning message."); // Another example
+  res.send("Function executed!");
 });
 
+// You may want to set max instances via Render's settings or environment, not in code
 
-const {setGlobalOptions} = require("firebase-functions");
-
-// Then you can use it:
-setGlobalOptions({maxInstances: 10});
-
-
-// });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
