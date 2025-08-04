@@ -130,6 +130,19 @@
         .post-card.hidden {
             display: none;
         }
+        .release-date-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -157,7 +170,7 @@
                 </p>
                 <div class="flex space-x-6 mt-4">
                     <div class="text-center">
-                        <p class="font-bold text-lg" id="total-posts-count">8</p>
+                        <p class="font-bold text-lg" id="total-posts-count">13</p>
                         <p class="text-sm text-gray-500">Posts</p>
                     </div>
                     <div class="text-center">
@@ -292,7 +305,7 @@
                                 </div>
                             </a>
 
-                            <!-- New Post 8: Aura's Glamour Moment: Chloé Dresses & The Art of Luxury Hair -->
+                            <!-- Post 8: Aura's Glamour Moment: Chloé Dresses & The Art of Luxury Hair -->
                             <a href="aura-salon-chloe-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
                                     src="https://i.imgur.com/8JqeGiG.jpeg"
@@ -305,16 +318,72 @@
                                 </div>
                             </a>
 
-                            <!-- New Placeholder Post 9 -->
-                            <a href="#" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hidden">
+                            <!-- Post 9: Aura's Golden Evening: Couture, Caviar & Wagyu Indulgence -->
+                            <a href="aura-luxury-dinner-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                                 <img
-                                    src="https://placehold.co/400x400/a0a0a0/ffffff?text=New+Post+9"
-                                    alt="Placeholder Image for New Post 9"
+                                    src="https://i.imgur.com/8UBZWXJ.jpeg"
+                                    alt="AI Influencer Aura at a fancy dinner"
                                     class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Golden+Dinner';"
                                 >
                                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <p class="text-white text-center font-semibold text-lg p-4">Future Trends: AI in Fashion</p>
+                                    <p class="text-white text-center font-semibold text-lg p-4">Golden Evening: Caviar & Wagyu</p>
                                 </div>
+                            </a>
+
+                            <!-- Post 10: Fitness Meets Fashion: Aura's Luxury Gym Routine -->
+                            <a href="aura-gym-glam-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/Poa2sO6.jpeg"
+                                    alt="AI Influencer Aura at a luxury gym"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Gym+Glam';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Fitness Meets Fashion: Gym Glam</p>
+                                </div>
+                            </a>
+
+                            <!-- New Post 11: Sweet Escape: Aura's Strawberry Picking Day in DÔEN -->
+                            <a href="aura-strawberry-picking-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/4dZvTIC.jpeg"
+                                    alt="AI Influencer Aura strawberry picking in a DÔEN top"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Strawberry+Picking';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Sweet Escape: Strawberry Picking</p>
+                                </div>
+                                <div class="release-date-overlay">Premium - Coming Sep 10th</div>
+                            </a>
+                            
+                            <!-- New Post 12: Salon Chic: Aura's Mytheresa Ensemble & Luxury Hair Experience -->
+                            <a href="aura-mytheresa-salon" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/as5X5Vl.jpeg"
+                                    alt="AI Influencer Aura at a luxury hair salon"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Salon+Chic';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Salon Chic: Mytheresa & Hair Art</p>
+                                </div>
+                                <div class="release-date-overlay">Premium - Coming Sep 29th</div>
+                            </a>
+                            
+                             <!-- New Post 13: Tomboy Gucci & Culinary Delights: Aura's Unexpected Evening -->
+                             <a href="gucci-lobster-blog" class="post-card block group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <img
+                                    src="https://i.imgur.com/sJl4xm3.jpeg"
+                                    alt="AI Influencer Aura in a tomboy Gucci outfit"
+                                    class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Tomboy+Gucci';"
+                                >
+                                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <p class="text-white text-center font-semibold text-lg p-4">Tomboy Gucci & Culinary Delights</p>
+                                </div>
+                                <div class="release-date-overlay">Premium: Oct 1st | Public: Nov 29th</div>
                             </a>
                         </div>
                         <div class="text-center mt-8">
@@ -411,6 +480,8 @@
                             <li><a href="aura-dior-vogue-blog" class="text-gray-700 hover:text-blue-600">Aura's Refined Retreat: Dior, Vogue & Luxury Hair</a></li>
                             <li><a href="aura-oyster-night-blog" class="text-gray-700 hover:text-blue-600">Aura's Perfect Evening: White Blouse & Luxury Oysters</a></li>
                             <li><a href="aura-salon-chloe-blog" class="text-gray-700 hover:text-blue-600">Aura's Glamour Moment: Chloé Dresses & The Art of Luxury Hair</a></li>
+                            <li><a href="aura-luxury-dinner-blog" class="text-gray-700 hover:text-blue-600">Aura's Golden Evening: Couture, Caviar & Wagyu Indulgence</a></li>
+                            <li><a href="aura-gym-glam-blog" class="text-gray-700 hover:text-blue-600">Fitness Meets Fashion: Aura's Luxury Gym Routine</a></li>
                         </ul>
                     </div>
                 </aside>
