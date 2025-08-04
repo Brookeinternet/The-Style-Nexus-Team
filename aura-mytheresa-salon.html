@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Chic: Aura's Mytheresa Ensemble & Luxury Hair Experience (Premium)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333; /* Darker text for readability */
+        }
+        /* Styles for premium content access */
+        .premium-content {
+            display: none; /* Hidden by default until authenticated and subscribed */
+        }
+        .message-box {
+            background-color: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffecb5;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .button-secondary {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #4b5563; /* gray-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+            margin-left: 0.5rem; /* Spacing between buttons */
+        }
+        .button-secondary:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .loading-indicator {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+        .released-soon-message {
+            background-color: #dbeafe; /* Light blue */
+            color: #1e40af; /* Dark blue */
+            border: 1px solid #93c5fd; /* Mid blue */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-4xl w-full">
+            <!-- Blog Post Header -->
+            <header class="p-6 sm:p-8 border-b border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2">
+                    Salon Chic: Aura's Mytheresa Ensemble & Luxury Hair Experience
+                </h1>
+                <p class="text-sm sm:text-base text-center text-gray-500">
+                    By The Style Nexus Team | July 17, 2025
+                </p>
+                <div id="auth-status" class="text-center mt-4 text-gray-600">
+                    <span id="user-id-display"></span>
+                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
+                    <button id="subscribe-button" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 px-3 rounded-md hidden">Subscribe to Premium</button>
+                    <button id="manage-subscription-button" class="ml-2 bg-gray-600 hover:bg-gray-700 text-white text-sm py-1 px-3 rounded-md hidden">Manage Subscription</button>
+                </div>
+            </header>
+
+            <!-- Premium Content Wrapper -->
+            <div id="premium-content-wrapper" class="p-6 sm:p-8 lg:p-10">
+                <div id="loading-message" class="loading-indicator">Loading content...</div>
+                <div id="access-denied-message" class="message-box hidden">
+                    <p class="mb-4">This is a premium article. Please log in or subscribe to view the full content.</p>
+                    <button id="login-prompt-button" class="button-primary">Login</button>
+                    <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>
+                </div>
+                <div id="released-soon-message" class="message-box released-soon-message hidden">
+                    <p class="mb-4 font-bold">Coming Soon!</p>
+                    <p>This premium article will be released on September 29, 2025. Check back then for Aura's salon chic moment!</p>
+                </div>
+
+                <div id="blog-post-content" class="premium-content">
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/as5X5Vl.jpeg"
+                            alt="AI Influencer Aura in a fashionable outfit at a luxury hair salon"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Aura, poised in a chic Mytheresa outfit, ready for a day of pampering at a high-end salon.
+                        </p>
+                    </div>
+
+                    <article class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            In the ever-evolving narrative of luxury and self-care, <strong class="text-gray-900">Aura</strong>, our digital style icon, recently indulged in a quintessential experience: a visit to a fancy hair salon. Far from a mere appointment, this was a moment of refined pampering, perfectly complemented by her impeccable style, featuring a stunning outfit curated from <strong class="text-gray-900">Mytheresa</strong>. It's a testament to how personal style and self-indulgence intertwine to create a truly glamorous lifestyle.
+                        </p>
+                        <p class="mb-4">
+                            Mytheresa, known for its exquisite selection of designer fashion, provides Aura with the perfect pieces to embody sophistication in any setting, even one as intimate as a salon visit. Her choice of attire speaks volumes about her discerning taste and commitment to elegance.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Mytheresa Ensemble: Salon Ready Chic
+                        </h2>
+                        <p class="mb-4">
+                            Aura's outfit for her salon day is a masterclass in understated luxury. She appears to be wearing a beautifully tailored dress or a coordinated two-piece set, possibly in a soft, flowing fabric like silk or a refined cotton blend, featuring a delicate print or subtle embroidery. The silhouette is elegant and comfortable, allowing for ease of movement while maintaining a polished appearance. The long sleeves and modest neckline suggest a sophisticated approach to daytime wear, perfectly suited for a high-end environment where comfort meets couture.
+                        </p>
+                        <p class="mb-4">
+                            The garment's design, likely from one of Mytheresa's esteemed designers, showcases meticulous craftsmanship and attention to detail. Whether it's the subtle drape of the fabric, the precision of the stitching, or the harmonious color palette, every element contributes to an effortlessly chic look. This ensemble proves that even for a routine like a salon visit, Aura maintains her high fashion standards. You can explore a wide range of designer dresses and other clothing from their curated collection on <a href="https://www.mytheresa.com/us/en/women/clothing/dresses" target="_blank" class="text-blue-600 hover:underline">Mytheresa's official website for dresses</a> or browse their broader <a href="https://www.mytheresa.com/us/en/women/clothing" target="_blank" class="text-blue-600 hover:underline">women's clothing section</a> to find similar luxurious pieces.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Luxury Hair Salon: A Sanctuary of Style and Well-being
+                        </h2>
+                        <p class="mb-4">
+                            Aura's visit to a fancy hair salon is more than just a beauty appointment; it's an immersive experience designed for ultimate relaxation and transformation. These high-end establishments are sanctuaries of style, characterized by their opulent interiors, plush seating, and state-of-the-art facilities. From the moment one steps in, the ambiance exudes sophistication, with soft lighting, calming music, and the subtle scent of premium hair products.
+                        </p>
+                        <p class="mb-4">
+                            The service is highly personalized, beginning with an in-depth consultation with world-class stylists who possess an innate understanding of hair artistry. They utilize cutting-edge techniques and the finest, often exclusive, hair care lines to ensure every client receives a bespoke treatment. Beyond standard cuts and colors, luxury salons excel in specialized services. This includes intricate balayage and highlighting techniques for natural, sun-kissed looks, precision cutting for architectural styles, and advanced coloring services that achieve complex, multi-dimensional hues. They also offer a range of restorative treatments, from deep conditioning and bond-repairing therapies to scalp detoxes, all designed to maintain optimal hair health and shine. For special occasions, elaborate updos and sophisticated styling are meticulously crafted. The expertise often extends to the seamless application of high-quality hair extensions, adding volume or length with undetectable results.
+                        </p>
+                        <p class="mb-4">
+                            Whether it's a precision cut, a transformative color, or a luxurious conditioning treatment, the focus is on enhancing natural beauty and delivering impeccable results. The image captures Aura with freshly styled hair, reflecting the expertise and meticulous care provided by such a salon. Her radiant smile after the session speaks volumes about the satisfaction and confidence that comes from such a transformative experience. For those seeking a similar indulgent experience, exploring lists of the <a href="https://staleks.com/top-best-world-beauty-salons/" target="_blank" class="text-blue-600 hover:underline">world's best beauty salons</a> can provide excellent starting points to discover these havens of beauty.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            Aura: The Embodiment of Curated Living
+                        </h2>
+                        <p class="mb-4">
+                            Aura's salon visit, dressed in Mytheresa elegance, is a powerful illustration of her philosophy of curated living. It highlights that true luxury is a holistic concept, encompassing not just the clothes one wears, but also the experiences one seeks out and the care one dedicates to self-presentation. Her ability to blend high fashion with moments of personal indulgence inspires her audience to embrace a lifestyle where every detail contributes to an overall sense of well-being and refined glamour. Her visible happiness throughout the process underscores the profound connection between self-care and confidence, making her a beacon of modern luxury.
+                        </p>
+
+                        <p class="text-lg font-medium text-gray-800 mt-8 text-center">
+                            Stay connected with The Style Nexus for more captivating insights into AI fashion and luxury living!
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signInAnonymously, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase configuration (replace with your actual project details)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
+            authDomain: "styleaura-c733a.firebaseapp.com",
+            projectId: "styleaura-c733a",
+            storageBucket: "styleaura-c733a.firebasestorage.app",
+            messagingSenderId: "203110694567",
+            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
+            measurementId: "G-KD994GTYGS"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'; // Use provided app ID or default
+
+        // Initialize Firebase variables
+        let app;
+        let auth;
+        let db;
+
+        // Get references to HTML elements
+        const blogPostContent = document.getElementById('blog-post-content');
+        const accessDeniedMessage = document.getElementById('access-denied-message');
+        const loadingMessage = document.getElementById('loading-message');
+        const releasedSoonMessage = document.getElementById('released-soon-message');
+        const authButton = document.getElementById('auth-button');
+        const loginPromptButton = document.getElementById('login-prompt-button');
+        const subscribePromptButton = document.getElementById('subscribe-prompt-button');
+        const userIdDisplay = document.getElementById('user-id-display');
+        const subscribeButton = document.getElementById('subscribe-button');
+        const manageSubscriptionButton = document.getElementById('manage-subscription-button');
+
+        // IMPORTANT: Replace this with your actual Stripe product link
+        const STRIPE_PRODUCT_LINK = "https://buy.stripe.com/6oU00jacq6PieXt2hP8bS00";
+        // Assuming your main login page is index.html or a dedicated login.html
+        const LOGIN_PAGE_URL = "index.html"; // Or "login.html" if you have one
+
+        // Set the release date for the premium article
+        const RELEASE_DATE = new Date('2025-09-29T00:00:00Z');
+
+        // Function to check if the article is released
+        const isReleased = () => new Date() >= RELEASE_DATE;
+
+        // Function to update UI based on auth state and subscription status
+        const updateUI = async (user) => {
+            loadingMessage.classList.add('hidden'); // Hide loading message
+
+            if (user) {
+                console.log("User is signed in:", user.uid);
+                authButton.textContent = 'Logout';
+                userIdDisplay.textContent = `User ID: ${user.uid}`;
+
+                // Check subscription status in Firestore
+                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/subscriptions`, 'premium');
+                console.log(`Checking subscription at Firestore path: artifacts/${appId}/users/${user.uid}/subscriptions/premium`);
+                
+                // Use onSnapshot for real-time updates to subscription status
+                onSnapshot(userDocRef, (docSnap) => {
+                    console.log("Firestore docSnap exists:", docSnap.exists());
+                    if (docSnap.exists()) {
+                        console.log("Firestore docSnap data:", docSnap.data());
+                    }
+                    
+                    if (docSnap.exists() && docSnap.data().active) {
+                        console.log("User is a premium member.");
+                        if (isReleased()) {
+                            blogPostContent.classList.remove('hidden');
+                            accessDeniedMessage.classList.add('hidden');
+                            releasedSoonMessage.classList.add('hidden');
+                        } else {
+                            releasedSoonMessage.classList.remove('hidden');
+                            blogPostContent.classList.add('hidden');
+                            accessDeniedMessage.classList.add('hidden');
+                        }
+                        subscribeButton.classList.add('hidden');
+                        manageSubscriptionButton.classList.remove('hidden');
+                    } else {
+                        console.log("User is not a premium member or subscription is inactive.");
+                        blogPostContent.classList.add('hidden');
+                        accessDeniedMessage.classList.remove('hidden');
+                        releasedSoonMessage.classList.add('hidden');
+                        subscribeButton.classList.remove('hidden');
+                        manageSubscriptionButton.classList.add('hidden');
+                    }
+                }, (error) => {
+                    console.error("Error listening to subscription status:", error);
+                    let errorMessage = "Error checking subscription status. Please ensure your Firebase Firestore Security Rules allow read access to 'artifacts/{appId}/users/{userId}/subscriptions/premium' for authenticated users.";
+                    if (error.code === 'permission-denied') {
+                        errorMessage = `Error: Missing or insufficient permissions. Please check your Firebase Firestore Security Rules. You need rules like:
+                                        match /artifacts/{appId}/users/{userId}/subscriptions/{document=**} {
+                                            allow read: if request.auth != null && request.auth.uid == userId;
+                                        }`;
+                    }
+                    
+                    blogPostContent.classList.add('hidden');
+                    accessDeniedMessage.classList.remove('hidden');
+                    releasedSoonMessage.classList.add('hidden');
+                    accessDeniedMessage.innerHTML = `<p class="mb-4">${errorMessage}</p>
+                                                     <button id="login-prompt-button" class="button-primary">Login</button>
+                                                     <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>`;
+                    document.getElementById('login-prompt-button').addEventListener('click', () => {
+                        window.location.href = LOGIN_PAGE_URL;
+                    });
+                    document.getElementById('subscribe-prompt-button').addEventListener('click', () => {
+                        window.location.href = STRIPE_PRODUCT_LINK;
+                    });
+
+                    subscribeButton.classList.remove('hidden');
+                    manageSubscriptionButton.classList.add('hidden');
+                    userIdDisplay.textContent = `User ID: ${user.uid} (Subscription check failed)`;
+                });
+
+            } else {
+                console.log("User is signed out.");
+                blogPostContent.classList.add('hidden');
+                accessDeniedMessage.classList.remove('hidden');
+                releasedSoonMessage.classList.add('hidden');
+                authButton.textContent = 'Login';
+                userIdDisplay.textContent = '';
+                subscribeButton.classList.remove('hidden');
+                manageSubscriptionButton.classList.add('hidden');
+            }
+        };
+
+        const initFirebaseAndAuth = async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                console.log("Firebase initialized successfully.");
+
+                onAuthStateChanged(auth, async (user) => {
+                    updateUI(user);
+                });
+
+                authButton.addEventListener('click', async () => {
+                    if (auth.currentUser) {
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out.");
+                        } catch (error) {
+                            console.error("Error signing out:", error);
+                        }
+                    } else {
+                        window.location.href = LOGIN_PAGE_URL;
+                    }
+                });
+
+                loginPromptButton.addEventListener('click', () => {
+                    window.location.href = LOGIN_PAGE_URL;
+                });
+
+                subscribeButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                subscribePromptButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                manageSubscriptionButton.addEventListener('click', () => {
+                    alert('Redirecting to subscription management. (Requires backend integration for Stripe Customer Portal)');
+                });
+
+            } catch (error) {
+                console.error("Error initializing Firebase or setting up auth listeners:", error);
+                loadingMessage.textContent = 'Error loading content. Please try again later.';
+                updateUI(null);
+            }
+        };
+
+        initFirebaseAndAuth();
+    </script>
+</body>
+</html>
