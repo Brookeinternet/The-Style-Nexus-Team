@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomboy Gucci & Culinary Delights: Aura's Unexpected Evening (Premium)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a more elegant look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* Light grey background */
+            color: #333; /* Darker text for readability */
+        }
+        /* Styles for premium content access */
+        .premium-content {
+            display: none; /* Hidden by default until authenticated and subscribed */
+        }
+        .message-box {
+            background-color: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffecb5;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .button-primary {
+            background-color: #3b82f6; /* blue-500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+        }
+        .button-primary:hover {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .button-secondary {
+            background-color: #e5e7eb; /* gray-200 */
+            color: #4b5563; /* gray-700 */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: inline-block; /* For spacing with other buttons */
+            margin-top: 1rem;
+            margin-left: 0.5rem; /* Spacing between buttons */
+        }
+        .button-secondary:hover {
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .loading-indicator {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+        .released-soon-message {
+            background-color: #dbeafe; /* Light blue */
+            color: #1e40af; /* Dark blue */
+            border: 1px solid #93c5fd; /* Mid blue */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div class="bg-white shadow-xl rounded-xl overflow-hidden max-w-4xl w-full">
+            <!-- Blog Post Header -->
+            <header class="p-6 sm:p-8 border-b border-gray-200">
+                <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-2">
+                    Tomboy Gucci & Culinary Delights: Aura's Unexpected Evening
+                </h1>
+                <p class="text-sm sm:text-base text-center text-gray-500">
+                    By The Style Nexus Team | July 15, 2025
+                </p>
+                <div id="auth-status" class="text-center mt-4 text-gray-600">
+                    <span id="user-id-display"></span>
+                    <button id="auth-button" class="ml-4 bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 px-3 rounded-md">Login</button>
+                    <button id="subscribe-button" class="ml-2 bg-purple-600 hover:bg-purple-700 text-white text-sm py-1 px-3 rounded-md hidden">Subscribe to Premium</button>
+                    <button id="manage-subscription-button" class="ml-2 bg-gray-600 hover:bg-gray-700 text-white text-sm py-1 px-3 rounded-md hidden">Manage Subscription</button>
+                </div>
+            </header>
+
+            <!-- Premium Content Wrapper -->
+            <div id="premium-content-wrapper" class="p-6 sm:p-8 lg:p-10">
+                <div id="loading-message" class="loading-indicator">Loading content...</div>
+                <div id="access-denied-message" class="message-box hidden">
+                    <p class="mb-4">This is a premium article. Log in to view the full content after the release date of October 1, 2025.</p>
+                    <p class="mb-4">The article will be publicly available on November 29, 2025.</p>
+                    <button id="login-prompt-button" class="button-primary">Login</button>
+                    <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>
+                </div>
+                <div id="released-soon-message" class="message-box released-soon-message hidden">
+                    <p class="mb-4 font-bold">Coming Soon!</p>
+                    <p>This premium article will be released on October 1, 2025. Check back then to read Aura's unexpected evening!</p>
+                </div>
+                
+                <div id="blog-post-content" class="premium-content">
+                    <div class="mb-8">
+                        <img
+                            src="https://i.imgur.com/sJl4xm3.jpeg"
+                            alt="AI Influencer Aura in a tomboyish Gucci outfit"
+                            class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                            onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                        >
+                        <p class="text-center text-sm text-gray-400 mt-2">
+                            Aura effortlessly blending high fashion with a relaxed, tomboy edge in Gucci.
+                        </p>
+                    </div>
+
+                    <article class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">
+                            In a world where AI influencers are constantly pushing the boundaries of style, <strong class="text-gray-900">Aura</strong> once again surprises and delights. This time, she masterfully combines a chic <strong class="text-gray-900">tomboyish Gucci outfit</strong> with an unexpected culinary adventure: a luxurious lobster dinner. It's a testament to her versatile appeal and the seamless integration of high fashion into everyday (or extraordinary) life.
+                        </p>
+
+                        <p class="mb-4">
+                            Gucci, renowned for its maximalist aesthetic and bold statements, finds a new interpretation through Aura's relaxed yet refined styling. The outfit features elements that speak to a comfortable, confident, and gender-fluid approach to luxury, moving beyond traditional feminine silhouettes.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Gucci Ensemble: Effortless Cool
+                        </h2>
+                        <p class="mb-4">
+                            Aura's Gucci look is a symphony of understated cool. We see a relaxed-fit blazer or jacket, possibly in a muted tone or with subtle Gucci monograms, paired with tailored yet comfortable trousers. The choice of footwear, perhaps stylish loafers or sleek sneakers, reinforces the tomboyish vibe, prioritizing comfort and practicality without compromising on luxury. This ensemble speaks to a modern sensibility, where fashion is about personal expression and ease.
+                        </p>
+
+                        <p class="mb-4">
+                            The beauty of this outfit lies in its details: the quality of the fabric, the precise tailoring, and perhaps a discreet Gucci accessory that adds a touch of brand recognition without overwhelming the look. Aura's digital rendering brings out the texture and drape of the materials, making the high-fashion elements feel approachable and lived-in.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            A Culinary Interlude: Lobster for Dinner
+                        </h2>
+                        <div class="mb-8">
+                            <img
+                                src="https://i.imgur.com/mysrNAq.jpeg"
+                                alt="Lobster dinner being prepared in a kitchen"
+                                class="w-full h-auto rounded-lg shadow-md object-cover mb-4"
+                                onerror="this.onerror=null;this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Not+Found';"
+                            >
+                            <p class="text-center text-sm text-gray-400 mt-2">
+                                A gourmet lobster dinner, a perfect complement to an evening of style.
+                            </p>
+                        </div>
+                        <p class="mb-4">
+                            What truly makes this feature unique is the juxtaposition of high fashion with the intimate act of preparing a gourmet meal. After a day of showcasing cutting-edge style, Aura transitions to the kitchen, where the focus shifts to culinary artistry. The image of the fresh lobster, ready for preparation, adds a touch of sophisticated realism to Aura's digital world.
+                        </p>
+
+                        <p class="mb-4">
+                            This unexpected twist highlights Aura's multifaceted persona, suggesting that style isn't just about what you wear, but how you live. It's about embracing diverse interests and finding luxury in every aspect of life, whether it's a designer outfit or a perfectly cooked meal.
+                        </p>
+
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 mt-6">
+                            The Fusion of Fashion and Lifestyle
+                        </h2>
+                        <p class="mb-4">
+                            Aura continues to inspire by blurring the lines between fashion, technology, and lifestyle. Her ability to seamlessly transition from a tomboy Gucci statement to a home-cooked lobster dinner demonstrates a holistic approach to influence. She reminds us that true luxury is about experience, comfort, and the joy of unexpected combinations.
+                        </p>
+
+                        <p class="text-lg font-medium text-gray-800 mt-8 text-center">
+                            Stay tuned to The Style Nexus for more unique fashion and lifestyle narratives from Aura!
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Blog Post Footer -->
+            <footer class="p-6 sm:p-8 border-t border-gray-200 text-center text-sm text-gray-500">
+                &copy; 2025 The Style Nexus. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, signInAnonymously, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase configuration (replace with your actual project details)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeNeSgWGmedceP7XBn9rtWULX7_VSbyKQ",
+            authDomain: "styleaura-c733a.firebaseapp.com",
+            projectId: "styleaura-c733a",
+            storageBucket: "styleaura-c733a.firebasestorage.app",
+            messagingSenderId: "203110694567",
+            appId: "1:203110694567:web:8796c5222edf0fe1b9e582",
+            measurementId: "G-KD994GTYGS"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        // Initialize Firebase variables
+        let app;
+        let auth;
+        let db;
+
+        const blogPostContent = document.getElementById('blog-post-content');
+        const accessDeniedMessage = document.getElementById('access-denied-message');
+        const loadingMessage = document.getElementById('loading-message');
+        const releasedSoonMessage = document.getElementById('released-soon-message');
+        const authButton = document.getElementById('auth-button');
+        const loginPromptButton = document.getElementById('login-prompt-button');
+        const subscribePromptButton = document.getElementById('subscribe-prompt-button');
+        const userIdDisplay = document.getElementById('user-id-display');
+        const subscribeButton = document.getElementById('subscribe-button');
+        const manageSubscriptionButton = document.getElementById('manage-subscription-button');
+
+        const STRIPE_PRODUCT_LINK = "https://buy.stripe.com/6oU00jacq6PieXt2hP8bS00";
+        const LOGIN_PAGE_URL = "index.html";
+
+        // Set the release dates
+        const PREMIUM_RELEASE_DATE = new Date('2025-10-01T00:00:00Z');
+        const PUBLIC_RELEASE_DATE = new Date('2025-11-29T00:00:00Z');
+
+        const isPremiumReleased = () => new Date() >= PREMIUM_RELEASE_DATE;
+        const isPublicReleased = () => new Date() >= PUBLIC_RELEASE_DATE;
+
+        const updateUI = async (user) => {
+            loadingMessage.classList.add('hidden');
+
+            if (isPublicReleased()) {
+                // Article is publicly released, show to everyone
+                console.log("Article is publicly available.");
+                blogPostContent.classList.remove('hidden');
+                accessDeniedMessage.classList.add('hidden');
+                releasedSoonMessage.classList.add('hidden');
+                if (user) {
+                     authButton.textContent = 'Logout';
+                     userIdDisplay.textContent = `User ID: ${user.uid}`;
+                } else {
+                     authButton.textContent = 'Login';
+                     userIdDisplay.textContent = '';
+                }
+                subscribeButton.classList.add('hidden');
+                manageSubscriptionButton.classList.add('hidden');
+                return;
+            }
+
+            if (user) {
+                console.log("User is signed in:", user.uid);
+                authButton.textContent = 'Logout';
+                userIdDisplay.textContent = `User ID: ${user.uid}`;
+
+                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/subscriptions`, 'premium');
+                console.log(`Checking subscription at Firestore path: artifacts/${appId}/users/${user.uid}/subscriptions/premium`);
+                
+                onSnapshot(userDocRef, (docSnap) => {
+                    console.log("Firestore docSnap exists:", docSnap.exists());
+                    if (docSnap.exists()) {
+                        console.log("Firestore docSnap data:", docSnap.data());
+                    }
+                    
+                    if (docSnap.exists() && docSnap.data().active) {
+                        console.log("User is a premium member.");
+                        if (isPremiumReleased()) {
+                            blogPostContent.classList.remove('hidden');
+                            accessDeniedMessage.classList.add('hidden');
+                            releasedSoonMessage.classList.add('hidden');
+                        } else {
+                            releasedSoonMessage.classList.remove('hidden');
+                            blogPostContent.classList.add('hidden');
+                            accessDeniedMessage.classList.add('hidden');
+                            releasedSoonMessage.innerHTML = `<p class="mb-4 font-bold">Coming Soon!</p><p>This premium article will be released on October 1, 2025. Check back then to read Aura's unexpected evening!</p>`;
+                        }
+                        subscribeButton.classList.add('hidden');
+                        manageSubscriptionButton.classList.remove('hidden');
+                    } else {
+                        console.log("User is not a premium member or subscription is inactive.");
+                        blogPostContent.classList.add('hidden');
+                        accessDeniedMessage.classList.remove('hidden');
+                        releasedSoonMessage.classList.add('hidden');
+                        subscribeButton.classList.remove('hidden');
+                        manageSubscriptionButton.classList.add('hidden');
+                    }
+                }, (error) => {
+                    console.error("Error listening to subscription status:", error);
+                    let errorMessage = "Error checking subscription status. Please ensure your Firebase Firestore Security Rules allow read access to 'artifacts/{appId}/users/{userId}/subscriptions/premium' for authenticated users.";
+                    if (error.code === 'permission-denied') {
+                        errorMessage = `Error: Missing or insufficient permissions. Please check your Firebase Firestore Security Rules. You need rules like:
+                                        match /artifacts/{appId}/users/{userId}/subscriptions/{document=**} {
+                                            allow read: if request.auth != null && request.auth.uid == userId;
+                                        }`;
+                    }
+                    
+                    blogPostContent.classList.add('hidden');
+                    accessDeniedMessage.classList.remove('hidden');
+                    releasedSoonMessage.classList.add('hidden');
+                    accessDeniedMessage.innerHTML = `<p class="mb-4">${errorMessage}</p>
+                                                     <button id="login-prompt-button" class="button-primary">Login</button>
+                                                     <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>`;
+                    document.getElementById('login-prompt-button').addEventListener('click', () => {
+                        window.location.href = LOGIN_PAGE_URL;
+                    });
+                    document.getElementById('subscribe-prompt-button').addEventListener('click', () => {
+                        window.location.href = STRIPE_PRODUCT_LINK;
+                    });
+
+                    subscribeButton.classList.remove('hidden');
+                    manageSubscriptionButton.classList.add('hidden');
+                    userIdDisplay.textContent = `User ID: ${user.uid} (Subscription check failed)`;
+                });
+
+            } else {
+                console.log("User is signed out.");
+                blogPostContent.classList.add('hidden');
+                accessDeniedMessage.classList.remove('hidden');
+                releasedSoonMessage.classList.add('hidden');
+                authButton.textContent = 'Login';
+                userIdDisplay.textContent = '';
+                subscribeButton.classList.remove('hidden');
+                manageSubscriptionButton.classList.add('hidden');
+                accessDeniedMessage.innerHTML = `<p class="mb-4">This is a premium article. The article will be publicly available on November 29, 2025.</p>
+                                                 <p class="mb-4">To get early access on October 1, 2025, please log in or subscribe to our premium membership.</p>
+                                                 <button id="login-prompt-button" class="button-primary">Login</button>
+                                                 <button id="subscribe-prompt-button" class="button-secondary">Subscribe Now</button>`;
+                document.getElementById('login-prompt-button').addEventListener('click', () => {
+                    window.location.href = LOGIN_PAGE_URL;
+                });
+                document.getElementById('subscribe-prompt-button').addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+            }
+        };
+
+        const initFirebaseAndAuth = async () => {
+            try {
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                console.log("Firebase initialized successfully.");
+
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        updateUI(user);
+                    } else {
+                        updateUI(null);
+                    }
+                });
+
+                authButton.addEventListener('click', async () => {
+                    if (auth.currentUser) {
+                        try {
+                            await signOut(auth);
+                            console.log("User signed out.");
+                        } catch (error) {
+                            console.error("Error signing out:", error);
+                        }
+                    } else {
+                        window.location.href = LOGIN_PAGE_URL;
+                    }
+                });
+                
+                subscribeButton.addEventListener('click', () => {
+                    window.location.href = STRIPE_PRODUCT_LINK;
+                });
+
+                manageSubscriptionButton.addEventListener('click', () => {
+                    alert('Redirecting to subscription management. (Requires backend integration for Stripe Customer Portal)');
+                });
+
+            } catch (error) {
+                console.error("Error initializing Firebase or setting up auth listeners:", error);
+                loadingMessage.textContent = 'Error loading content. Please try again later.';
+                updateUI(null);
+            }
+        };
+
+        initFirebaseAndAuth();
+    </script>
+</body>
+</html>
